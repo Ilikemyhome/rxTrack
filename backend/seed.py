@@ -96,7 +96,7 @@ def run():
     
     # SCENARIO 3: Missing diagnosis code (insurance reject)
     
-    p3 = Patient.objects.create(
+    patient3 = Patient.objects.create(
         first_name="Kyna",
         last_name="Borja",
         date_of_birth=date(2005, 7, 11),
@@ -104,7 +104,7 @@ def run():
     )
 
     rx5 = Prescription.objects.create(
-        patient=p3,
+        patient=patient3,
         drug_name="Methylphenidate",
         dosage="5mg Tablet",
         quantity=60,
@@ -119,7 +119,7 @@ def run():
     )
 
     # SCENARIO 4: One ready, one refill too soon, one in progress
-    p4 = Patient.objects.create(
+    patient4 = Patient.objects.create(
         first_name="Ingrid",
         last_name="Arenas",
         date_of_birth=date(2005, 12, 8),
@@ -127,7 +127,7 @@ def run():
     )
 
     rx6 = Prescription.objects.create(
-        patient=p4,
+        patient=patient4,
         drug_name="Sertraline",
         dosage="50mg",
         sig="Take one tablet by mouth once daily",
@@ -141,7 +141,7 @@ def run():
         is_high_cost=False
     )
     rx7 = Prescription.objects.create(
-        patient=p4,
+        patient=patient4,
         drug_name="Alprazolam",
         dosage="0.25mg",
         sig="Take one tablet by mouth as needed for anxiety",
@@ -156,7 +156,7 @@ def run():
     )
 
     rx8 = Prescription.objects.create(
-        patient=p4,
+        patient=patient4,
         drug_name="Gabapentin",
         dosage="600mg",
         sig="Take one tablet by mouth three times a day",
@@ -173,7 +173,7 @@ def run():
 
     # SCENARIO 5: No prescriptions in process but pt has otm alerts (e.g. vaccine due, overdue refills, etc)
 
-    p5 = Patient.objects.create(
+    patient5 = Patient.objects.create(
         first_name="Danuel",
         last_name="Delmundo",
         date_of_birth=date(1985, 3, 22),
@@ -181,7 +181,7 @@ def run():
     )
 
     rx9 = Prescription.objects.create(
-        patient=p5,
+        patient=patient5,
         drug_name="Lisinopril",
         dosage="10mg",
         sig="Take one tablet by mouth once daily",
@@ -209,7 +209,7 @@ def run():
     )
 
     OTMAlert.objects.create(
-        patient=p5,
+        patient=patient5,
         alert_type="Covid Vaccine Due",
         is_resolved=False
     )
