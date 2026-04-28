@@ -1,0 +1,53 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+*.env
+
+# Django stuff
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# Migrations (OPTIONAL — keep if you want clean repo)
+# Uncomment if you want to ignore migration files:
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Node / React (if you have frontend)
+node_modules/
+dist/
+build/
+
+# Yarn / npm
+yarn-error.log
+npm-debug.log
+
+# Coverage / testing
+coverage/
+htmlcov/
+.pytest_cache/
+
+# Compiled files
+*.so
+
+# IDEs
+.idea/
