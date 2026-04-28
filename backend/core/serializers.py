@@ -52,11 +52,7 @@ class PatientSerializer(serializers.ModelSerializer):
 
 class PatientDashboardSerializer(serializers.ModelSerializer):
     prescriptions = PrescriptionSerializer(many=True, read_only=True)
-    patient_alerts = OTMAlertSerializer(
-        many=True,
-        read_only=True,
-        source="patient_alerts"
-    )
+    patient_alerts = OTMAlertSerializer(many=True, read_only=True)
 
     class Meta:
         model = Patient
