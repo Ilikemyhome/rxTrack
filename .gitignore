@@ -48,6 +48,10 @@ htmlcov/
 
 # Compiled files
 *.so
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
 # IDEs
 .idea/
