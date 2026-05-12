@@ -1,0 +1,331 @@
+# -------------------------------------------------------
+# ---- CSV created by:  mightymerge.io                   
+# -------------------------------------------------------
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"05 ","M/I Service Provider Number ","0201 ",BILLING PROVIDER ID NUMBER MISSING
+"05 ","M/I Service Provider Number ","0202 ",BILLING PROVIDER ID IN INVALID FORMAT
+"05 ","M/I Service Provider Number ","1004 ",PROVIDER NOT ALLOWED TO BILL FROM SERVICE LOCATION
+"05 ","M/I Service Provider Number ","1025 ",OUT OF STATE PROVIDER DOES NOT HAVE A VALID LICENSE
+,,,ON FILE FOR CLAIM DATES OF SERVICE
+"05 ","M/I Service Provider Number ","1927 ",NPI REQUIRED: BILLING PROVIDER (HEALTHCARE)
+"05 ","M/I Service Provider Number ","1945 ",MULTIPLE SERVICE LOCATIONS FOR BILLING PROVIDER
+"07 ","M/I Cardholder ID ","0203 ",RECIPIENT I.D. NUMBER MISSING
+"09 ","M/I Date Of Birth ","0255 ",CLIENT DOB DISAGREES WITH SUBMITTED DOB
+"09 ","M/I Date Of Birth ","832 ",DATE OF BIRTH MISSING (304-C4)
+"09 ","M/I Date Of Birth ","0833 ",DATE OF BIRTH INVALID (304-C4)
+"09 ","M/I Date Of Birth ","2807 ",CLIENT DATE OF BIRTH IS NOT ON FILE
+"10 ","M/I Patient Gender Code ","0834 ",MISSING/INVALID PATIENT GENDER (305-C5)
+"12 ","M/I Place of Service ","0800 ",PATIENT LOCATION IS MISSING/INVALID
+"15 ","M/I Date of Service ","0215 ",DATE DISPENSED IS MISSING
+"15 ","M/I Date of Service ","0216 ",DATE DISPENSED IS INVALID
+"15 ","M/I Date of Service ","0397 ","HEADER STMT COVERS PERIOD ""THROUGH"" DATE MISSING"
+"15 ","M/I Date of Service ","0503 ",DATE DISPENSED AFTER BILLING DATE
+"16 ","M/I Prescription/ Service Reference Number ","0212 ",PRESCRIPTION NUMBER IS MISSING
+"17 ","M/I Fill Number ","0211 ",REFILL INDICATOR IS MISSING OR INVALID
+"19 ","M/I Days Supply ","0221 ",DAYS SUPPLY MISSING
+"19 ","M/I Days Supply ","0222 ",DAYS SUPPLY INVALID
+"21 ","M/I Product/Service ID ","0217 ",NDC IS MISSING
+"21 ","M/I Product/Service ID ","0218 ",NDC INVALID FORMAT
+"25 ","M/I Prescriber ID ","0205 ",PRESCRIBING PRACTITIONER'S LICENSE NO. MISSING
+"25 ","M/I Prescriber ID ","0206 ",PRESCRIBING PRACTITIONR LICENSE NO. FORMAT INVALID
+"25 ","M/I Prescriber ID ","0209 ",PRESCRIBER ID OF GROUP; RESUBMIT INDIVIDUAL’S NPI
+"28 ","M/I Date Prescription Written ","0213 ",DATE PRESCRIBED IS MISSING
+"28 ","M/I Date Prescription Written ","0214 ",DATE PRESCRIBED IS INVALID
+"28 ","M/I Date Prescription Written ","0256 ","DATE DISPENSED IS > 1YR, OR 6 MO, FROM DTE WRITTEN"
+"28 ","M/I Date Prescription Written ","0500 ",DATE PRESCRIBED AFTER BILLING DATE
+"28 ","M/I Date Prescription Written ","0502 ",DATE DISPENSED EARLIER THAN DATE PRESCRIBED
+"39 ","M/I Diagnosis Code ","2819 ",TB DIAGNOSIS CODE REQUIRED
+"39 ","M/I Diagnosis Code ","0349 ",DIAGNOSIS REQUIRED FOR SHORT AND LONG ACTING
+,,,OPIOIDS.
+"39 ","M/I Diagnosis Code ","4040 ",PRIMARY DIAGNOSIS CODE NOT ON FILE
+"39 ","M/I Diagnosis Code ","4041 ",SECONDARY DIAGNOSIS CODE NOT ON FILE
+"40 ",Pharmacy Not Contracted With Plan On Date,"1001 ",PROVIDER DOES NOT HAVE A CONTRACT FOR CLAIM TYPE
+,Of Service,,
+"41 ",Submit Bill To Other Processor Or Primary,"2508 ",RECIPIENT COVERED BY PRIVATE INSURANCE (PHARMACY)
+,Payer,,
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"50 ","Non-Matched Pharmacy Number ","0551 ",PROVIDER ID ON ADJUSTMENT DOES NOT MATCH MOTHER
+"50 ","Non-Matched Pharmacy Number ","1000 ",BILLING PROVIDER ID. NUMBER NOT 0N FILE
+"52 ","Non-Matched Cardholder ID ","2001 ",RECIPIENT ID NUMBER NOT ON FILE
+"54 ","Non-Matched Product/Service ID Number ","4004 ",NDC NOT ON FILE
+"55 ","Non-Matched Product Package Size ","0801 ",QUANTITY BILLED DOES NOT EQUAL PACKAGE SIZE
+"60 ",Product/Service Not Covered For Patient,"4025 ",AGE RESTRICTION FOR COVERED NDC
+,Age,,
+"60 ",Product/Service Not Covered For Patient,"4044 ",NO REIMBURSEMENT RULE FOR ASSOCIATED AGE
+,Age,,
+"61 ",Product/Service Not Covered For Patient,"3318 ",THE NDC IS NOT CONSISTENT WITH THE CLIENT'S GENDER
+,Gender,,
+"61 ",Product/Service Not Covered For Patient,"4023 ",GENDER RESTRICTION FOR COVERED NDC
+,Gender,,
+"61 ",Product/Service Not Covered For Patient,"4962 ",GENDER RESTRICTION FOR BILLED NDC
+,Gender,,
+"62 ","Patient/Card Holder ID Name Mismatch ","0513 ",RECIPIENT NAME AND NUMBER DISAGREE
+"62 ","Patient/Card Holder ID Name Mismatch ","0825 ",CLIENT NAME DISAGREES WITH NAME ON FILE
+"63 ",Product/Service ID Not Covered For,"3308 ",DRUG/DEVICE INCLUDED IN NH PER DIEM
+,Institutionalized Patient,,
+"69 ","Filled After Coverage Terminated ","0777 ",ConnPACE TERMINATED
+"69 ","Filled After Coverage Terminated ","0778 ",CHARTER OAK PROGRAM TERMINATED
+"70 ",Product/Service Not Covered – Plan/Benefit,"0709 ",PHARMACY SERVICE NOT COVERED FOR HOSPICE CLIENT
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"3304 ",NDCIS LESS EFFECTIVE/DESI DRUG
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"3307 ",SUBMIT CLAIM WITH OUTER PACKAGE NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"3309 ",PATIENT RESIDENCE RESTRICTION FOR THE COVERED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"3317 ",INSTITUTIONAL NDC NOT COVERED
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"3319 ",OTC DIABETIC TESTING SUPPLIES N/C FOR PHARMACY (AGE
+,Exclusion,,> 20)
+"70 ",Product/Service Not Covered – Plan/Benefit,"4002 ",NO COVERAGE FOR BILLED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4061 ",NO REIMB RULE FOR ASSOCIATED CLAIM TYPE
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4164 ",INACTIVE DRUG
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4222 ",MED REVIEW RESTRICTION FOR COVERED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4256 ",PRIMARY DIAGNOSIS RESTRICTION FOR BILLED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4257 ",SECONDARY DIAGNOSIS RESTRICTION FOR COVERED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4258 ",SECONDARY DIAGNOSIS RESTRICTION FOR BILLED NDC
+,Exclusion,,
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4831 ",NO REIMB RULE
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4960 ",BENEFIT PLAN RESTRICTION FOR COVERED NDC
+,Exclusion,,
+"70 ",Product/Service Not Covered – Plan/Benefit,"4965 ",BENEFIT PLAN RESTRICTION FOR BILLED NDC
+,Exclusion,,
+"71 ","Prescriber ID Is Not Covered ","0204 ",PRESCRIBING PROVIDER NOT AUTHORIZED TO PRESCRIBE
+"71 ","Prescriber ID Is Not Covered ","0237 ",STUDENT OR RESIDENT NOT AUTHORIZED TO PRESCRIBE
+"71 ","Prescriber ID Is Not Covered ","1801 ",PRESCRIBING PROVIDER WITHOUT ACTIVE LICENSE ON FILE
+"74 ",Other Carrier Payment Meets Or Exceeds,"0505 ",THIRD PARTY PAYMENT AMOUNT MORE THAN CLAIM
+,Payable,,CHARGE
+"75 ","Prior Authorization Required ","3002 ",NDC REQUIRES PA
+"75 ","Prior Auth Required ","3104 ",PA REQUIRED ON NDC-CALL DSS 1-800-233-2503
+"75 ","Prior Auth Required ","3106 ",TRANSMUCOSAL FENTANYL REQUIRES PA FOR MORE THAN
+,,,4 DOSES PER DAY.
+"75 ","Prior Auth Required ","3301 ",OPTIMAL DOSAGE EXCEEDED
+"76 ","Plan Limitations Exceeded ","4026 ",MAXIMUM UNIT RESTRICTION FOR COVERED NDC
+"76 ","Plan Limitations Exceeded ","6554 ",MILLIGRAM MORPHINE EQUIVALENCY (MME) LIMIT
+,,,EXCEEDED
+"76 ","Plan Limitations Exceeded ","6555 ",EXCEEDED ENTERAL QUANTITY
+"76 ","Plan Limitations Exceeded ","6556 ",DURATION OF THERAPY EXCEEDED
+"77 ","Discontinued Product/Service ID Number ","4007 ",NON-COVERED NDC DUE TO CMS TERMINATION
+"78 ","Cost Exceeds Maximum ","3306 ","DETAIL ALLOWED AMOUNT GREATER THAN $50,000"
+"78 ","Cost Exceeds Maximum ","3330 ",CLAIM DETAIL EXCEEDS ALLOWABLE LIMIT. CONTACT THE
+,,,PROVIDER ASSISTANCE CENTER.
+"79 ","Early Refill ","7003 ",PRODUR ALERT REQUIRES PA OVERRIDE
+"80 ","Drug-Diagnosis Mismatch ","3302 ",NDC NOT CONSISTENT WITH ANY BILLED DIAGNOSIS
+"80 ","Drug-Diagnosis Mismatch ","3314 ",HEADER DIAGNOSIS RESTRICTION for NDC UNDER
+,,,PROVIDER CONTRACT
+"80 ","Drug-Diagnosis Mismatch ","4361 ",PRIMARY DIAGNOSIS RESTRICTION FOR COVERED NDC
+"81 ","Claim Too Old ","0515 ",CHARTER OAK 120 DAY TIMELY FILLING LIMIT EXCEEDED
+"81 ","Claim Too Old ","0545 ",TIMELY FILLING
+"83 ","Duplicate Paid/ Captured Claim ","5000 ",POSSIBLE DUPLICATE
+"83 ","Duplicate Paid/ Captured Claim ","5001 ",EXACT DUPLICATE
+"85 ","Claim Not Processed ","0589 ",SUSPEND ADJUSTMENT FOR PRE-PAYMENT VERIFICATION
+"88 ","DUR Reject Error ","7000 ",CLAIM FAILED A PRODUR ALERT
+"88 ","DUR Reject Error ","7001 ",INFORMATIONAL PRODUR ALERT
+"88 ","DUR Reject Error ","7002 ",CLAIM DENIED FOR PRODUR REASONS
+"88 ","DUR Reject Error ","7004 ",CLAIM DENIED FOR PRODUR ALERT
+"506 ",Prescription/ Service Reference Number,"0804 ",PRESCRIPTION QUALIFIER IS INVALID
+,Qualifier Value Not Supported,,
+"521 ",Diagnosis Code Qualifier Value Not,"0807 ",DIAGNOSIS CODE QUALIFIER IS INVALID
+,Supported,,
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"534 ",Other Amount Claimed Submitted Qualifier,"0808 ",OTHER AMOUNT CLAIM SUBMITTED QUALIFIER IS INVALID
+,Value Not Supported,,
+"535 ","Other Coverage Code Value Not Supported ","0643 ",INVALID OTHER COVERAGE CODE
+"535 ","Other Coverage Code Value not supported ","2802 ",CLIENT PLAN REQUIRED CO-PAY ONLY BILLING FOR MDD
+"536 ",Other Payer-Patient Responsibility Amount,"0883 ",PATIENT RESPONSIBILITY AMOUNT QUALIFIER NOT
+,Qualifier Value Not Supported,,SUPPORTED
+"543 ","Prescriber ID Qualifier Value Not Supported ","0805 ",PRESCRIBER QUALIFIER IS INVALID
+"545 ",Prescription Origin Code Value Not,"0836 ",MISSING/INVALID PRESCRIPTION ORIGIN CODE (419-DJ)
+,Supported,,
+"600 ","Coverage Outside Submitted Date Of Service ","2800 ",SERVICE IS AFTER DATE OF DEATH
+"621 ","This Medicaid Patient Is Medicare Eligible ","2514 ","RECIPIENT COVERED BY MEDICARE (A AND B), NO MED D"
+"621 ","This Medicaid Patient Is Medicare Eligible ","2521 ","RECIPIENT COVERED BY MEDICARE A AND/OR B, NO MED D"
+"621 ","This Medicaid Patient Is Medicare Eligible ","2801 ","MEDICARE ELIGIBLE, CLIENT MUST ENROLL IN PART D"
+"826 ",Prescriber NPI Submitted Not Found Within,"0207 ",PRESCRIBING PROVIDER NOT ENROLLED
+,Processor’s NPI File,,
+"826 ",Prescriber NPI Submitted Not Found Within,"1026 ",PRESCRIBING PHYSICIAN LICENSE NUMBER NOT ON FILE
+,Processor’s NPI File,,
+"828 ",Plan/Beneficiary Case Management,"2809 ",MED D NF DRUG REQUIRES PA
+,Restriction In Place,,
+"828 ",Plan/Beneficiary Case Management,"2810 ",ONE TIME BYPASS FILL HAS BEEN USED
+,Restriction In Place,,
+"925 ","Initial Fill Days Supply Exceeds Limits ","3110 ",SHORT TERM OPIOIDS DAYS SUPPLY 7
+"982 ",Provide PT Req Notice-Delay for Claim,"3100 ",PA REQUIRED- DISPENSE GENERIC EQUIVALENT
+,Rej/Ben Rest,,
+"982 ",Provide PT Req Notice-Delay for Claim,"3101 ",PA REQUIRED- DISPENSE PREFERRED DRUG
+,Rej/Ben Rest,,
+"982 ",Provide PT Req Notice-Delay for Claim,"3105 ",NON-PREFERRED MH DRUG; CONTACT MD OR DXC for PA
+,Rej/Ben Rest,,
+"606 ","Brand Drug / Specific Labeler Code Required ","3107 ",NON-PREFERRED MH DRUG; DISPENSE PREFERRED BRAND
+"606 ","Brand Drug / Specific Labeler Code Required ","3108 ",NON-PREFERRED DRUG; DISPENSE PREFERRED BRAND
+"982 ",Provide PT Req Notice-Delay for Claim,"3109 ",PA REQUIRED FOR LONG ACTING OPIOID DRUGS
+,Rej/Ben Rest,,
+"982 ",Provide PT Req Notice-Delay for Claim,"3111 ",MME EXCEEDED
+,Rej/Ben Rest,,
+"1R ","Version/Release Value Not Supported ","0617 ",INVALID CLAIM VERSION – SUBMIT IN HIPAA 5010
+"1T ",PCN Must Contain Processor/Payer Assigned,"0818 ",INVALID PROCESSOR CONTROLL NUMBER
+,Value,,
+"1T ",PCN Must Contain Processor/Payer Assigned,"0826 ",INVALID PROCESSOR CONTROLL NUMBER. USE CTPCNPTD
+,Value,,
+"1T ",PCN Must Contain Processor/Payer Assigned,"0828 ",INVALID PROCESSOR CONTROLL NUMBER. USE CTPCNFMD
+,Value,,
+"41 ",Submit Bill To Other Processor Or Primary,"2803 ",MED D COVERED DRUG –BILL MEDICARE FIRST
+,Payer,,
+"4Y ","Patient Residence Value Not Supported ","0831 ",MISSING/INVALID PATIENT RESIDENCE (384-4X)
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"6C ","M/I Other Payer ID Qualifier ","0882 ",OTHER PAYER ID QUALIFIER NOT APPLICABLE
+"6E ","M/I Other Payer Reject Code ","0819 ",OTHER PAYER REJECT CODE REQUIRED
+"6E ","M/I Other Payer Reject Code ","0820 ",OTHER PAYER REJECT CODE NOT ACCEPTED FOR TPL
+"6E ","M/I Other Payer Reject Code ","0829 ",REJECT CODE NOT ACCEPTED FOR TPL BILLING
+"6E ","M/I Other Payer Reject Code ","0849 ",REJECT CODE REQUIRED
+"6G ",Coordination Of Benefits/Other Payments,"0847 ",MDD CO-PAY ONLY CLAIM WITHOUT PRIMARY BILLING
+,Segment Required For Adjudication,,"INFO, PLEASE CORRECT/RESUBMIT."
+"6G ",Coordination Of Benefits/Other Payments,"0848 ","OCC CODE SUBMITTED WITHOUT PRIMARY PAYER INFO,"
+,Segment Required For Adjudication,,PLEASE CORRECT/RESUBMIT.
+"6Z ",Provider Not Eligible To Perform,"4139 ",PERFORMING PROVIDER TYPE/SPECIALTY IS RESTRICTED
+,Service/Dispense Product,,FOR THE NDC UNDER THE CLIENT'S
+"6Z ",Provider Not Eligible To Perform,"4148 ",PERFORMING PROVIDER TYPE/SPECIALTY IS RESTRICTED
+,Service/Dispense Product,,FOR THE NDC UNDER PROVIDER CONTRACT
+"6Z ",Provider Not Eligible To Perform,"4153 ",NDC CODE IS UNDER MEDICAL REVIEW FOR THIS PROVIDER
+,Service/Dispense Product,,CONTRACT
+"6Z ",Provider Not Eligible To Perform,"4160 ",CONTRACT RESTRICTION FOR NDC UNDER PROVIDER
+,Service/Dispense Product,,CONTRACT
+"6Z ",Provider Not Eligible To Perform,"4803 ",NDC IS NOT BILLABLE UNDER PROVIDER CONTRACT.
+,Service/Dispense Product,,
+"7B ",Service Provider ID Qualifier Value Not,"0802 ",SERVICE PROVIDER QUALIFIER MISSING OR INVALID.
+,Supported For Processor/Payer,,
+"7C ","M/I Other Payer ID ","0809 ","OTHER INSURANCE CARRIER CODE (PAYER ID) IS MISSING,"
+,,,INVALID OR NOT APPLICABLE.
+"7K ",Discrepancy Between Other Coverage Code,"0830 ",OTHER AMOUNT SUBMITTED INVALID FOR COVERAGE
+,And Other Coverage Information On File,,CODE
+"7k ",Discrepancy Between Other Coverage Code,"0846 ",OTHER PAYER PATIENT RESPONSIBILITY AMOUNT INVALID
+,And Other Payer Amount,,FOR COVERAGE CODE
+"7M ",Discrepancy Between Other Coverage Code,"2804 ",CLAIM MUST BE BILLED AS CROSSOVER.
+,And Other Coverage Information On File,,
+"7M ",Discrepancy Between Other Coverage Code,"2817 ",MEDICARE D NF DRUG NOT COVERED
+,And Other Coverage Information On File,,
+"7Q ",Other Payer ID Qualifier Value Not,"0881 ",OTHER PAYER ID QUALIFIER NOT SUPPORTED
+,Supported,,
+"7W ","Refills Exceed Allowable Refills ","3300 ",EXCEEDS MAXIMUM REFILLS ALLOWED.
+"8K ","DAW Code Value Not Supported ","0210 ",BRAND MEDICALLY NECESSARY INDICATOR INVALID
+"8W ",Discrepancy Between Other Coverage Code,"0227 ",THIRD PARTY PAYMENT AMOUNT INVALID
+,And Other Payer Amount Paid,,
+"9K ",Compound Ingredient Component Count,"0247 ",MAXIMUM NUMBER OF CLAIM DETAILS EXCEEDED
+,Exceeds Number Of Ingredients Supported,,
+"A6 ",This Product/ Service May Be Covered Under,"2509 ",RECIPIENT COVERED BY MEDICARE B (PHARMACY)
+,Medicare Part B,,
+"AA ","Patient Spenddown Not Met ","2010 ",CLIENT HAS NOT SATISFIED SPEND-DOWN.
+"AC ",Product Not Covered Non-Participating,"1016 ",MANUFACTURER IS NOT PARTICIPATING IN DRUG REBATE
+,Manufacturer,,ON DATE OF SERVICE DISPENSED.
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"AD ",Billing Provider Not Eligible To Bill This Claim,"0788 ",ENCOUNTER SUBMITTED FOR INVALID CLAIM TYPE
+,Type,,
+"AD ",Billing Provider Not Eligible To Bill This Claim,"0845 ",PROVIDER NOT ALLOWED TO BILL CLAIM TYPE
+,Type,,
+"AD ",Billing Provider Not Eligible To Bill This Claim,"4131 ",NO BENEFIT PLAN ASSOCIATED TO PAYER. CONTACT THE
+,Type,,PROVIDER ASSISTANCE CENTER.
+"AD ",Billing Provider Not Eligible To Bill This Claim,"4138 ",BILLING PROVIDER TYPE/SPECIALTY IS RESTRICTED FOR NDC
+,Type,,IN CLIENT BENEFIT PLAN
+"AD ",Billing Provider Not Eligible To Bill This Claim,"4250 ",NO REIMBURSEMENT RULE FOR THE ASSOCIATED
+,Type,,PROVIDER TYPE/PROVIDER SPECIALTY
+"AD ",Billing Provider Not Eligible To Bill This Claim,"4775 ",BILLING PROVIDER NOT AUTHORIZED TO BILL FOR
+,Type,,SUBMITTED NDC
+"AG ","Days Supply Limitation For Product/Service ","3316 ",EXCEEDS THE MAXIMUM DAYS SUPPLY ALLOWED
+"AG ","Days Supply Limitation For Product/Service ","4165 ",MAX DAY SUPPLY RESTRICTION FOR COVERED NDC
+"AH ",Unit Dose Packaging Only Payable For,"4113 ",UNIT DOSE PACKAGING COVERED FOR LTC RESIDENTS ONLY
+,Nursing Home Recipients,,
+"CC ","M/I Cardholder First Name ","0817 ",CLIENT'S FIRST NAME IS MISSING
+"CD ","M/I Cardholder Last Name ","0238 ",CLIENT'S LAST NAME IS MISSING
+"CD ","M/I Cardholder Last Name ","0815 ",CLIENT'S LAST NAME IS NOT VALID
+"DQ ","M/I Usual And Customary Charge ","0268 ",DETAIL BILLED AMOUNT IS MISSING
+"DQ ","M/I Usual And Customary Charge ","0269 ",DETAIL BILLED AMOUNT INVALID
+"DQ ","M/I Usual And Customary Charge ","4009 ",ALLOWED AMOUNT LESS THAN DRUG CHARGE VARIANCE
+"DV ","M/I Other Payer Amount Paid ","0810 ",THE OTHER INSURANCE AMOUNT IS MISSING OR NOT
+,,,APPLICABLE.
+"E7 ","M/I Quantity Dispensed ","0219 ",QUANTITY DISPENSED IS MISSING
+"E7 ","M/I Quantity Dispensed ","0220 ",QUANTITY DISPENSED IS INVALID FORMAT.
+"E7 ","M/I Quantity Dispensed ","0260 ",UNITS OF SERVICE IS INVALID
+"M1 ","Patient Not Covered In This Aid Category ","2002 ",CLIENT INELIGIBLE FOR DATES OF SERVICE.
+"M1 ","Patient Not Covered In This Aid Category ","2101 ",CLIENT IS NOT ELIGIBLE ON EMS
+"M2 ","Recipient Locked In ","0670 ",CLAIM TYPE NOT COVERED FOR CLIENT WITH INPATIENT
+,,,LOCK-IN
+"M2 ","Recipient Locked In ","2603 ",RECIPIENT /PROVIDER LOCK-IN VIOLATION
+"M5 ","Requires Manual Claim ","0873 ",MANUALLY PRICED AT ZERO/ GREATER THAN BILLED
+,,,AMOUNT
+"M5 ","Requires Manual Claim ","6000 ",MANUAL PRICING REQUIRED
+"M6 ","Host Eligibility Error ","2102 ",CLIENT ELIGIBILITY SYSTEM IS NOT AVAILABLE
+"M6 ","Host Eligibility Error ","2103 ",UNABLE TO DETERMINE CLIENT ELIGIBILITY
+"M6 ","Host Eligibility Error ","4127 ",CANNOT PRIORITIZE RECIPIENT'S PROGRAMS
+"M6 ","Host Eligibility Error ","4130 ",PAYER HIERARCHY NOT FOUND
+"M7 ","Host Drug File Error ","4014 ",NO PRICING SEGMENT ON FILE
+"M7 ","Host Drug File Error ","4045 ",NO REIMBURSEMENT RULE FOR ASSOCIATED BENEFIT PLAN
+"M7 ","Host Drug File Error ","4068 ",NO REIMBURSEMENT RULE FOR ASSOCIATED CONTRACT
+"M8 ","Host Provider File Error ","0912 ",PROVIDER TYPE AND SPECIALTY CANNOT BE FOUND
+,,,Last Updated 3/2023
+
+Pharmacy NCPDP Reject Codes,,,
+"M8 ","Host Provider File Error ","7500 ",BILLING PROVIDER ON PREPAYMENT REVIEW
+NCPDP,"NCPDP Reject Code Description ",interChange,Description
+Reject,,Edit,
+Code,,,
+"MR ","Product Not On Formulary ","2811 ",NON-FORMULARY DRUG UNDER CURRENT DSS THRESHOLD
+"N1 ","No patient Match Found ","2100 ",CLIENT NOT FOUND ON ELIGIBILITY MANAGEMENT SYSTEM.
+"NP ",M/I Other Payer-Patient Responsibility,"0838 ",M/I PATIENT RESPONSIBILITY AMOUNT QUALIFIER (351-NP)
+,Amount Qualifier,,
+"NQ ",M/I Other Payer-Patient Responsibility,"2820 ",CO-PAY ONLY CLAIM GREATER THAN $6.50 NOT ALLOWED
+,Amount,,
+"NQ ",M/I Other Payer-Patient Responsibility,"2821 ",CO-PAY ONLY CLAIM GREATER THAN $6.60 NOT ALLOWED
+,Amount,,
+"NQ ",M/I Other Payer-Patient Responsibility,"2825 ",CO-PAY ONLY CLAIM GREATER THAN $7.40 NOT ALLOWED
+,Amount,,
+"NQ ",M/I Other Payer-Patient Responsibility,"2826 ",CO-PAY ONLY CLAIM GREATER THAN $8.25 NOT ALLOWED
+,Amount,,
+"P6 ","Date Of Service Prior To Date Of Birth ","2805 ",SERVICE IS BEFORE DATE OF BIRTH
+"R6 ",Product/Service Not Appropriate For This,"1003 ",BILLING PROV NOT ELIG AT SERV LOC FOR PROG BILLED
+,Location,,
+"R6 ",Product/Service Not Appropriate For This,"3303 ",LIVING ARRANGEMENT RESTRICTION FOR THE COVERED
+,Location,,NDC
+"R6 ",Product/Service Not Appropriate For This,"3305 ",NO REIMBURSEMENT RULE FOR ASSOCIATED PATIENT
+,Location,,RESIDENCE.
+"R6 ",Product/Service Not Appropriate For This,"4254 ",PATIENT RESIDENCE RESTRICTION FOR NDC ON PROVIDER
+,Location,,CONTRACT
+"R9 ",Gross Amt Due Value Does Not Follow Price,"0352 ",BILLED AMOUNT IS GREATER THAN CMAP ALLOWED
+,Formulae,,AMOUNT
+,,,Last Updated 3/2023

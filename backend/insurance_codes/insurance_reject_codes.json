@@ -1,0 +1,1380 @@
+{
+    "05": [
+        {
+            "edit": "0201",
+            "short": "M/I Service Provider Number",
+            "long": "BILLING PROVIDER ID NUMBER MISSING",
+            "category": "provider"
+        },
+        {
+            "edit": "0202",
+            "short": "M/I Service Provider Number",
+            "long": "BILLING PROVIDER ID IN INVALID FORMAT",
+            "category": "provider"
+        },
+        {
+            "edit": "1004",
+            "short": "M/I Service Provider Number",
+            "long": "PROVIDER NOT ALLOWED TO BILL FROM SERVICE LOCATION",
+            "category": "provider"
+        },
+        {
+            "edit": "1025",
+            "short": "M/I Service Provider Number",
+            "long": "OUT OF STATE PROVIDER DOES NOT HAVE A VALID LICENSE",
+            "category": "provider"
+        },
+        {
+            "edit": "1927",
+            "short": "M/I Service Provider Number",
+            "long": "NPI REQUIRED: BILLING PROVIDER (HEALTHCARE)",
+            "category": "provider"
+        },
+        {
+            "edit": "1945",
+            "short": "M/I Service Provider Number",
+            "long": "MULTIPLE SERVICE LOCATIONS FOR BILLING PROVIDER",
+            "category": "provider"
+        }
+    ],
+    "07": [
+        {
+            "edit": "0203",
+            "short": "M/I Cardholder ID",
+            "long": "RECIPIENT I.D. NUMBER MISSING",
+            "category": "member"
+        }
+    ],
+    "09": [
+        {
+            "edit": "0255",
+            "short": "M/I Date Of Birth",
+            "long": "CLIENT DOB DISAGREES WITH SUBMITTED DOB",
+            "category": "service"
+        },
+        {
+            "edit": "832",
+            "short": "M/I Date Of Birth",
+            "long": "DATE OF BIRTH MISSING (304-C4)",
+            "category": "service"
+        },
+        {
+            "edit": "0833",
+            "short": "M/I Date Of Birth",
+            "long": "DATE OF BIRTH INVALID (304-C4)",
+            "category": "service"
+        },
+        {
+            "edit": "2807",
+            "short": "M/I Date Of Birth",
+            "long": "CLIENT DATE OF BIRTH IS NOT ON FILE",
+            "category": "service"
+        }
+    ],
+    "10": [
+        {
+            "edit": "0834",
+            "short": "M/I Patient Gender Code",
+            "long": "MISSING/INVALID PATIENT GENDER (305-C5)",
+            "category": "other"
+        }
+    ],
+    "12": [
+        {
+            "edit": "0800",
+            "short": "M/I Place of Service",
+            "long": "PATIENT LOCATION IS MISSING/INVALID",
+            "category": "other"
+        }
+    ],
+    "15": [
+        {
+            "edit": "0215",
+            "short": "M/I Date of Service",
+            "long": "DATE DISPENSED IS MISSING",
+            "category": "service"
+        },
+        {
+            "edit": "0216",
+            "short": "M/I Date of Service",
+            "long": "DATE DISPENSED IS INVALID",
+            "category": "service"
+        },
+        {
+            "edit": "0397",
+            "short": "M/I Date of Service",
+            "long": "HEADER STMT COVERS PERIOD THROUGH DATE MISSING",
+            "category": "service"
+        },
+        {
+            "edit": "0503",
+            "short": "M/I Date of Service",
+            "long": "DATE DISPENSED AFTER BILLING DATE",
+            "category": "service"
+        }
+    ],
+    "16": [
+        {
+            "edit": "0212",
+            "short": "M/I Prescription/ Service Reference Number",
+            "long": "PRESCRIPTION NUMBER IS MISSING",
+            "category": "rx"
+        }
+    ],
+    "17": [
+        {
+            "edit": "0211",
+            "short": "M/I Fill Number",
+            "long": "REFILL INDICATOR IS MISSING OR INVALID",
+            "category": "rx"
+        }
+    ],
+    "19": [
+        {
+            "edit": "0221",
+            "short": "M/I Days Supply",
+            "long": "DAYS SUPPLY MISSING",
+            "category": "other"
+        },
+        {
+            "edit": "0222",
+            "short": "M/I Days Supply",
+            "long": "DAYS SUPPLY INVALID",
+            "category": "other"
+        }
+    ],
+    "21": [
+        {
+            "edit": "0217",
+            "short": "M/I Product/Service ID",
+            "long": "NDC IS MISSING",
+            "category": "other"
+        },
+        {
+            "edit": "0218",
+            "short": "M/I Product/Service ID",
+            "long": "NDC INVALID FORMAT",
+            "category": "other"
+        }
+    ],
+    "25": [
+        {
+            "edit": "0205",
+            "short": "M/I Prescriber ID",
+            "long": "PRESCRIBING PRACTITIONERS LICENSE NO. MISSING",
+            "category": "other"
+        },
+        {
+            "edit": "0206",
+            "short": "M/I Prescriber ID",
+            "long": "PRESCRIBING PRACTITIONR LICENSE NO. FORMAT INVALID",
+            "category": "other"
+        },
+        {
+            "edit": "0209",
+            "short": "M/I Prescriber ID",
+            "long": "PRESCRIBER ID OF GROUP; RESUBMIT INDIVIDUAL\u2019S NPI",
+            "category": "other"
+        }
+    ],
+    "28": [
+        {
+            "edit": "0213",
+            "short": "M/I Date Prescription Written",
+            "long": "DATE PRESCRIBED IS MISSING",
+            "category": "service"
+        },
+        {
+            "edit": "0214",
+            "short": "M/I Date Prescription Written",
+            "long": "DATE PRESCRIBED IS INVALID",
+            "category": "service"
+        },
+        {
+            "edit": "0256",
+            "short": "M/I Date Prescription Written",
+            "long": "DATE DISPENSED IS > 1YR, OR 6 MO, FROM DTE WRITTEN",
+            "category": "service"
+        },
+        {
+            "edit": "0500",
+            "short": "M/I Date Prescription Written",
+            "long": "DATE PRESCRIBED AFTER BILLING DATE",
+            "category": "service"
+        },
+        {
+            "edit": "0502",
+            "short": "M/I Date Prescription Written",
+            "long": "DATE DISPENSED EARLIER THAN DATE PRESCRIBED",
+            "category": "service"
+        }
+    ],
+    "39": [
+        {
+            "edit": "2819",
+            "short": "M/I Diagnosis Code",
+            "long": "TB DIAGNOSIS CODE REQUIRED",
+            "category": "other"
+        },
+        {
+            "edit": "0349",
+            "short": "M/I Diagnosis Code",
+            "long": "DIAGNOSIS REQUIRED FOR SHORT AND LONG ACTING",
+            "category": "other"
+        },
+        {
+            "edit": "4040",
+            "short": "M/I Diagnosis Code",
+            "long": "PRIMARY DIAGNOSIS CODE NOT ON FILE",
+            "category": "other"
+        },
+        {
+            "edit": "4041",
+            "short": "M/I Diagnosis Code",
+            "long": "SECONDARY DIAGNOSIS CODE NOT ON FILE",
+            "category": "other"
+        }
+    ],
+    "40": [
+        {
+            "edit": "1001",
+            "short": "Pharmacy Not Contracted With Plan On Date",
+            "long": "PROVIDER DOES NOT HAVE A CONTRACT FOR CLAIM TYPE",
+            "category": "service"
+        }
+    ],
+    "41": [
+        {
+            "edit": "2508",
+            "short": "Submit Bill To Other Processor Or Primary",
+            "long": "RECIPIENT COVERED BY PRIVATE INSURANCE (PHARMACY)",
+            "category": "other"
+        },
+        {
+            "edit": "2803",
+            "short": "Submit Bill To Other Processor Or Primary",
+            "long": "MED D COVERED DRUG \u2013BILL MEDICARE FIRST",
+            "category": "other"
+        }
+    ],
+    "50": [
+        {
+            "edit": "0551",
+            "short": "Non-Matched Pharmacy Number",
+            "long": "PROVIDER ID ON ADJUSTMENT DOES NOT MATCH MOTHER",
+            "category": "other"
+        },
+        {
+            "edit": "1000",
+            "short": "Non-Matched Pharmacy Number",
+            "long": "BILLING PROVIDER ID. NUMBER NOT 0N FILE",
+            "category": "other"
+        }
+    ],
+    "52": [
+        {
+            "edit": "2001",
+            "short": "Non-Matched Cardholder ID",
+            "long": "RECIPIENT ID NUMBER NOT ON FILE",
+            "category": "member"
+        }
+    ],
+    "54": [
+        {
+            "edit": "4004",
+            "short": "Non-Matched Product/Service ID Number",
+            "long": "NDC NOT ON FILE",
+            "category": "other"
+        }
+    ],
+    "55": [
+        {
+            "edit": "0801",
+            "short": "Non-Matched Product Package Size",
+            "long": "QUANTITY BILLED DOES NOT EQUAL PACKAGE SIZE",
+            "category": "other"
+        }
+    ],
+    "60": [
+        {
+            "edit": "4025",
+            "short": "Product/Service Not Covered For Patient",
+            "long": "AGE RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4044",
+            "short": "Product/Service Not Covered For Patient",
+            "long": "NO REIMBURSEMENT RULE FOR ASSOCIATED AGE",
+            "category": "other"
+        }
+    ],
+    "61": [
+        {
+            "edit": "3318",
+            "short": "Product/Service Not Covered For Patient",
+            "long": "THE NDC IS NOT CONSISTENT WITH THE CLIENTS GENDER",
+            "category": "other"
+        },
+        {
+            "edit": "4023",
+            "short": "Product/Service Not Covered For Patient",
+            "long": "GENDER RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4962",
+            "short": "Product/Service Not Covered For Patient",
+            "long": "GENDER RESTRICTION FOR BILLED NDC",
+            "category": "other"
+        }
+    ],
+    "62": [
+        {
+            "edit": "0513",
+            "short": "Patient/Card Holder ID Name Mismatch",
+            "long": "RECIPIENT NAME AND NUMBER DISAGREE",
+            "category": "other"
+        },
+        {
+            "edit": "0825",
+            "short": "Patient/Card Holder ID Name Mismatch",
+            "long": "CLIENT NAME DISAGREES WITH NAME ON FILE",
+            "category": "other"
+        }
+    ],
+    "63": [
+        {
+            "edit": "3308",
+            "short": "Product/Service ID Not Covered For",
+            "long": "DRUG/DEVICE INCLUDED IN NH PER DIEM",
+            "category": "other"
+        }
+    ],
+    "69": [
+        {
+            "edit": "0777",
+            "short": "Filled After Coverage Terminated",
+            "long": "ConnPACE TERMINATED",
+            "category": "rx"
+        },
+        {
+            "edit": "0778",
+            "short": "Filled After Coverage Terminated",
+            "long": "CHARTER OAK PROGRAM TERMINATED",
+            "category": "rx"
+        }
+    ],
+    "70": [
+        {
+            "edit": "0709",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "PHARMACY SERVICE NOT COVERED FOR HOSPICE CLIENT",
+            "category": "other"
+        },
+        {
+            "edit": "3304",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "NDCIS LESS EFFECTIVE/DESI DRUG",
+            "category": "other"
+        },
+        {
+            "edit": "3307",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "SUBMIT CLAIM WITH OUTER PACKAGE NDC",
+            "category": "other"
+        },
+        {
+            "edit": "3309",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "PATIENT RESIDENCE RESTRICTION FOR THE COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "3317",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "INSTITUTIONAL NDC NOT COVERED",
+            "category": "other"
+        },
+        {
+            "edit": "3319",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "OTC DIABETIC TESTING SUPPLIES N/C FOR PHARMACY (AGE",
+            "category": "other"
+        },
+        {
+            "edit": "4002",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "NO COVERAGE FOR BILLED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4061",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "NO REIMB RULE FOR ASSOCIATED CLAIM TYPE",
+            "category": "other"
+        },
+        {
+            "edit": "4164",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "INACTIVE DRUG",
+            "category": "other"
+        },
+        {
+            "edit": "4222",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "MED REVIEW RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4256",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "PRIMARY DIAGNOSIS RESTRICTION FOR BILLED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4257",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "SECONDARY DIAGNOSIS RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4258",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "SECONDARY DIAGNOSIS RESTRICTION FOR BILLED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4831",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "NO REIMB RULE",
+            "category": "other"
+        },
+        {
+            "edit": "4960",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "BENEFIT PLAN RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "4965",
+            "short": "Product/Service Not Covered \u2013 Plan/Benefit",
+            "long": "BENEFIT PLAN RESTRICTION FOR BILLED NDC",
+            "category": "other"
+        }
+    ],
+    "71": [
+        {
+            "edit": "0204",
+            "short": "Prescriber ID Is Not Covered",
+            "long": "PRESCRIBING PROVIDER NOT AUTHORIZED TO PRESCRIBE",
+            "category": "other"
+        },
+        {
+            "edit": "0237",
+            "short": "Prescriber ID Is Not Covered",
+            "long": "STUDENT OR RESIDENT NOT AUTHORIZED TO PRESCRIBE",
+            "category": "other"
+        },
+        {
+            "edit": "1801",
+            "short": "Prescriber ID Is Not Covered",
+            "long": "PRESCRIBING PROVIDER WITHOUT ACTIVE LICENSE ON FILE",
+            "category": "other"
+        }
+    ],
+    "74": [
+        {
+            "edit": "0505",
+            "short": "Other Carrier Payment Meets Or Exceeds",
+            "long": "THIRD PARTY PAYMENT AMOUNT MORE THAN CLAIM",
+            "category": "other"
+        }
+    ],
+    "75": [
+        {
+            "edit": "3002",
+            "short": "Prior Authorization Required",
+            "long": "NDC REQUIRES PA",
+            "category": "other"
+        },
+        {
+            "edit": "3104",
+            "short": "Prior Auth Required",
+            "long": "PA REQUIRED ON NDC-CALL DSS 1-800-233-2503",
+            "category": "other"
+        },
+        {
+            "edit": "3106",
+            "short": "Prior Auth Required",
+            "long": "TRANSMUCOSAL FENTANYL REQUIRES PA FOR MORE THAN",
+            "category": "other"
+        },
+        {
+            "edit": "3301",
+            "short": "Prior Auth Required",
+            "long": "OPTIMAL DOSAGE EXCEEDED",
+            "category": "other"
+        }
+    ],
+    "76": [
+        {
+            "edit": "4026",
+            "short": "Plan Limitations Exceeded",
+            "long": "MAXIMUM UNIT RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        },
+        {
+            "edit": "6554",
+            "short": "Plan Limitations Exceeded",
+            "long": "MILLIGRAM MORPHINE EQUIVALENCY (MME) LIMIT",
+            "category": "other"
+        },
+        {
+            "edit": "6555",
+            "short": "Plan Limitations Exceeded",
+            "long": "EXCEEDED ENTERAL QUANTITY",
+            "category": "other"
+        },
+        {
+            "edit": "6556",
+            "short": "Plan Limitations Exceeded",
+            "long": "DURATION OF THERAPY EXCEEDED",
+            "category": "other"
+        }
+    ],
+    "77": [
+        {
+            "edit": "4007",
+            "short": "Discontinued Product/Service ID Number",
+            "long": "NON-COVERED NDC DUE TO CMS TERMINATION",
+            "category": "other"
+        }
+    ],
+    "78": [
+        {
+            "edit": "3306",
+            "short": "Cost Exceeds Maximum",
+            "long": "DETAIL ALLOWED AMOUNT GREATER THAN $50,000",
+            "category": "other"
+        },
+        {
+            "edit": "3330",
+            "short": "Cost Exceeds Maximum",
+            "long": "CLAIM DETAIL EXCEEDS ALLOWABLE LIMIT. CONTACT THE",
+            "category": "other"
+        }
+    ],
+    "79": [
+        {
+            "edit": "7003",
+            "short": "Early Refill",
+            "long": "PRODUR ALERT REQUIRES PA OVERRIDE",
+            "category": "rx"
+        }
+    ],
+    "80": [
+        {
+            "edit": "3302",
+            "short": "Drug-Diagnosis Mismatch",
+            "long": "NDC NOT CONSISTENT WITH ANY BILLED DIAGNOSIS",
+            "category": "other"
+        },
+        {
+            "edit": "3314",
+            "short": "Drug-Diagnosis Mismatch",
+            "long": "HEADER DIAGNOSIS RESTRICTION for NDC UNDER",
+            "category": "other"
+        },
+        {
+            "edit": "4361",
+            "short": "Drug-Diagnosis Mismatch",
+            "long": "PRIMARY DIAGNOSIS RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        }
+    ],
+    "81": [
+        {
+            "edit": "0515",
+            "short": "Claim Too Old",
+            "long": "CHARTER OAK 120 DAY TIMELY FILLING LIMIT EXCEEDED",
+            "category": "other"
+        },
+        {
+            "edit": "0545",
+            "short": "Claim Too Old",
+            "long": "TIMELY FILLING",
+            "category": "other"
+        }
+    ],
+    "83": [
+        {
+            "edit": "5000",
+            "short": "Duplicate Paid/ Captured Claim",
+            "long": "POSSIBLE DUPLICATE",
+            "category": "other"
+        },
+        {
+            "edit": "5001",
+            "short": "Duplicate Paid/ Captured Claim",
+            "long": "EXACT DUPLICATE",
+            "category": "other"
+        }
+    ],
+    "85": [
+        {
+            "edit": "0589",
+            "short": "Claim Not Processed",
+            "long": "SUSPEND ADJUSTMENT FOR PRE-PAYMENT VERIFICATION",
+            "category": "other"
+        }
+    ],
+    "88": [
+        {
+            "edit": "7000",
+            "short": "DUR Reject Error",
+            "long": "CLAIM FAILED A PRODUR ALERT",
+            "category": "other"
+        },
+        {
+            "edit": "7001",
+            "short": "DUR Reject Error",
+            "long": "INFORMATIONAL PRODUR ALERT",
+            "category": "other"
+        },
+        {
+            "edit": "7002",
+            "short": "DUR Reject Error",
+            "long": "CLAIM DENIED FOR PRODUR REASONS",
+            "category": "other"
+        },
+        {
+            "edit": "7004",
+            "short": "DUR Reject Error",
+            "long": "CLAIM DENIED FOR PRODUR ALERT",
+            "category": "other"
+        }
+    ],
+    "506": [
+        {
+            "edit": "0804",
+            "short": "Prescription/ Service Reference Number",
+            "long": "PRESCRIPTION QUALIFIER IS INVALID",
+            "category": "rx"
+        }
+    ],
+    "521": [
+        {
+            "edit": "0807",
+            "short": "Diagnosis Code Qualifier Value Not",
+            "long": "DIAGNOSIS CODE QUALIFIER IS INVALID",
+            "category": "other"
+        }
+    ],
+    "534": [
+        {
+            "edit": "0808",
+            "short": "Other Amount Claimed Submitted Qualifier",
+            "long": "OTHER AMOUNT CLAIM SUBMITTED QUALIFIER IS INVALID",
+            "category": "other"
+        }
+    ],
+    "535": [
+        {
+            "edit": "0643",
+            "short": "Other Coverage Code Value Not Supported",
+            "long": "INVALID OTHER COVERAGE CODE",
+            "category": "other"
+        },
+        {
+            "edit": "2802",
+            "short": "Other Coverage Code Value not supported",
+            "long": "CLIENT PLAN REQUIRED CO-PAY ONLY BILLING FOR MDD",
+            "category": "other"
+        }
+    ],
+    "536": [
+        {
+            "edit": "0883",
+            "short": "Other Payer-Patient Responsibility Amount",
+            "long": "PATIENT RESPONSIBILITY AMOUNT QUALIFIER NOT",
+            "category": "other"
+        }
+    ],
+    "543": [
+        {
+            "edit": "0805",
+            "short": "Prescriber ID Qualifier Value Not Supported",
+            "long": "PRESCRIBER QUALIFIER IS INVALID",
+            "category": "other"
+        }
+    ],
+    "545": [
+        {
+            "edit": "0836",
+            "short": "Prescription Origin Code Value Not",
+            "long": "MISSING/INVALID PRESCRIPTION ORIGIN CODE (419-DJ)",
+            "category": "rx"
+        }
+    ],
+    "600": [
+        {
+            "edit": "2800",
+            "short": "Coverage Outside Submitted Date Of Service",
+            "long": "SERVICE IS AFTER DATE OF DEATH",
+            "category": "service"
+        }
+    ],
+    "621": [
+        {
+            "edit": "2514",
+            "short": "This Medicaid Patient Is Medicare Eligible",
+            "long": "RECIPIENT COVERED BY MEDICARE (A AND B), NO MED D",
+            "category": "other"
+        },
+        {
+            "edit": "2521",
+            "short": "This Medicaid Patient Is Medicare Eligible",
+            "long": "RECIPIENT COVERED BY MEDICARE A AND/OR B, NO MED D",
+            "category": "other"
+        },
+        {
+            "edit": "2801",
+            "short": "This Medicaid Patient Is Medicare Eligible",
+            "long": "MEDICARE ELIGIBLE, CLIENT MUST ENROLL IN PART D",
+            "category": "other"
+        }
+    ],
+    "826": [
+        {
+            "edit": "0207",
+            "short": "Prescriber NPI Submitted Not Found Within",
+            "long": "PRESCRIBING PROVIDER NOT ENROLLED",
+            "category": "other"
+        },
+        {
+            "edit": "1026",
+            "short": "Prescriber NPI Submitted Not Found Within",
+            "long": "PRESCRIBING PHYSICIAN LICENSE NUMBER NOT ON FILE",
+            "category": "other"
+        }
+    ],
+    "828": [
+        {
+            "edit": "2809",
+            "short": "Plan/Beneficiary Case Management",
+            "long": "MED D NF DRUG REQUIRES PA",
+            "category": "other"
+        },
+        {
+            "edit": "2810",
+            "short": "Plan/Beneficiary Case Management",
+            "long": "ONE TIME BYPASS FILL HAS BEEN USED",
+            "category": "other"
+        }
+    ],
+    "925": [
+        {
+            "edit": "3110",
+            "short": "Initial Fill Days Supply Exceeds Limits",
+            "long": "SHORT TERM OPIOIDS DAYS SUPPLY 7",
+            "category": "rx"
+        }
+    ],
+    "982": [
+        {
+            "edit": "3100",
+            "short": "Provide PT Req Notice-Delay for Claim",
+            "long": "PA REQUIRED- DISPENSE GENERIC EQUIVALENT",
+            "category": "other"
+        },
+        {
+            "edit": "3101",
+            "short": "Provide PT Req Notice-Delay for Claim",
+            "long": "PA REQUIRED- DISPENSE PREFERRED DRUG",
+            "category": "other"
+        },
+        {
+            "edit": "3105",
+            "short": "Provide PT Req Notice-Delay for Claim",
+            "long": "NON-PREFERRED MH DRUG; CONTACT MD OR DXC for PA",
+            "category": "other"
+        },
+        {
+            "edit": "3109",
+            "short": "Provide PT Req Notice-Delay for Claim",
+            "long": "PA REQUIRED FOR LONG ACTING OPIOID DRUGS",
+            "category": "other"
+        },
+        {
+            "edit": "3111",
+            "short": "Provide PT Req Notice-Delay for Claim",
+            "long": "MME EXCEEDED",
+            "category": "other"
+        }
+    ],
+    "606": [
+        {
+            "edit": "3107",
+            "short": "Brand Drug / Specific Labeler Code Required",
+            "long": "NON-PREFERRED MH DRUG; DISPENSE PREFERRED BRAND",
+            "category": "other"
+        },
+        {
+            "edit": "3108",
+            "short": "Brand Drug / Specific Labeler Code Required",
+            "long": "NON-PREFERRED DRUG; DISPENSE PREFERRED BRAND",
+            "category": "other"
+        }
+    ],
+    "1R": [
+        {
+            "edit": "0617",
+            "short": "Version/Release Value Not Supported",
+            "long": "INVALID CLAIM VERSION \u2013 SUBMIT IN HIPAA 5010",
+            "category": "other"
+        }
+    ],
+    "1T": [
+        {
+            "edit": "0818",
+            "short": "PCN Must Contain Processor/Payer Assigned",
+            "long": "INVALID PROCESSOR CONTROLL NUMBER",
+            "category": "other"
+        },
+        {
+            "edit": "0826",
+            "short": "PCN Must Contain Processor/Payer Assigned",
+            "long": "INVALID PROCESSOR CONTROLL NUMBER. USE CTPCNPTD",
+            "category": "other"
+        },
+        {
+            "edit": "0828",
+            "short": "PCN Must Contain Processor/Payer Assigned",
+            "long": "INVALID PROCESSOR CONTROLL NUMBER. USE CTPCNFMD",
+            "category": "other"
+        }
+    ],
+    "4Y": [
+        {
+            "edit": "0831",
+            "short": "Patient Residence Value Not Supported",
+            "long": "MISSING/INVALID PATIENT RESIDENCE (384-4X)",
+            "category": "other"
+        }
+    ],
+    "6C": [
+        {
+            "edit": "0882",
+            "short": "M/I Other Payer ID Qualifier",
+            "long": "OTHER PAYER ID QUALIFIER NOT APPLICABLE",
+            "category": "other"
+        }
+    ],
+    "6E": [
+        {
+            "edit": "0819",
+            "short": "M/I Other Payer Reject Code",
+            "long": "OTHER PAYER REJECT CODE REQUIRED",
+            "category": "other"
+        },
+        {
+            "edit": "0820",
+            "short": "M/I Other Payer Reject Code",
+            "long": "OTHER PAYER REJECT CODE NOT ACCEPTED FOR TPL",
+            "category": "other"
+        },
+        {
+            "edit": "0829",
+            "short": "M/I Other Payer Reject Code",
+            "long": "REJECT CODE NOT ACCEPTED FOR TPL BILLING",
+            "category": "other"
+        },
+        {
+            "edit": "0849",
+            "short": "M/I Other Payer Reject Code",
+            "long": "REJECT CODE REQUIRED",
+            "category": "other"
+        }
+    ],
+    "6G": [
+        {
+            "edit": "0847",
+            "short": "Coordination Of Benefits/Other Payments",
+            "long": "MDD CO-PAY ONLY CLAIM WITHOUT PRIMARY BILLING",
+            "category": "other"
+        },
+        {
+            "edit": "0848",
+            "short": "Coordination Of Benefits/Other Payments",
+            "long": "OCC CODE SUBMITTED WITHOUT PRIMARY PAYER INFO,",
+            "category": "other"
+        }
+    ],
+    "6Z": [
+        {
+            "edit": "4139",
+            "short": "Provider Not Eligible To Perform",
+            "long": "PERFORMING PROVIDER TYPE/SPECIALTY IS RESTRICTED",
+            "category": "provider"
+        },
+        {
+            "edit": "4148",
+            "short": "Provider Not Eligible To Perform",
+            "long": "PERFORMING PROVIDER TYPE/SPECIALTY IS RESTRICTED",
+            "category": "provider"
+        },
+        {
+            "edit": "4153",
+            "short": "Provider Not Eligible To Perform",
+            "long": "NDC CODE IS UNDER MEDICAL REVIEW FOR THIS PROVIDER",
+            "category": "provider"
+        },
+        {
+            "edit": "4160",
+            "short": "Provider Not Eligible To Perform",
+            "long": "CONTRACT RESTRICTION FOR NDC UNDER PROVIDER",
+            "category": "provider"
+        },
+        {
+            "edit": "4803",
+            "short": "Provider Not Eligible To Perform",
+            "long": "NDC IS NOT BILLABLE UNDER PROVIDER CONTRACT.",
+            "category": "provider"
+        }
+    ],
+    "7B": [
+        {
+            "edit": "0802",
+            "short": "Service Provider ID Qualifier Value Not",
+            "long": "SERVICE PROVIDER QUALIFIER MISSING OR INVALID.",
+            "category": "provider"
+        }
+    ],
+    "7C": [
+        {
+            "edit": "0809",
+            "short": "M/I Other Payer ID",
+            "long": "OTHER INSURANCE CARRIER CODE (PAYER ID) IS MISSING,",
+            "category": "other"
+        }
+    ],
+    "7K": [
+        {
+            "edit": "0830",
+            "short": "Discrepancy Between Other Coverage Code",
+            "long": "OTHER AMOUNT SUBMITTED INVALID FOR COVERAGE",
+            "category": "other"
+        }
+    ],
+    "7k": [
+        {
+            "edit": "0846",
+            "short": "Discrepancy Between Other Coverage Code",
+            "long": "OTHER PAYER PATIENT RESPONSIBILITY AMOUNT INVALID",
+            "category": "other"
+        }
+    ],
+    "7M": [
+        {
+            "edit": "2804",
+            "short": "Discrepancy Between Other Coverage Code",
+            "long": "CLAIM MUST BE BILLED AS CROSSOVER.",
+            "category": "other"
+        },
+        {
+            "edit": "2817",
+            "short": "Discrepancy Between Other Coverage Code",
+            "long": "MEDICARE D NF DRUG NOT COVERED",
+            "category": "other"
+        }
+    ],
+    "7Q": [
+        {
+            "edit": "0881",
+            "short": "Other Payer ID Qualifier Value Not",
+            "long": "OTHER PAYER ID QUALIFIER NOT SUPPORTED",
+            "category": "other"
+        }
+    ],
+    "7W": [
+        {
+            "edit": "3300",
+            "short": "Refills Exceed Allowable Refills",
+            "long": "EXCEEDS MAXIMUM REFILLS ALLOWED.",
+            "category": "rx"
+        }
+    ],
+    "8K": [
+        {
+            "edit": "0210",
+            "short": "DAW Code Value Not Supported",
+            "long": "BRAND MEDICALLY NECESSARY INDICATOR INVALID",
+            "category": "other"
+        }
+    ],
+    "8W": [
+        {
+            "edit": "0227",
+            "short": "Discrepancy Between Other Coverage Code",
+            "long": "THIRD PARTY PAYMENT AMOUNT INVALID",
+            "category": "other"
+        }
+    ],
+    "9K": [
+        {
+            "edit": "0247",
+            "short": "Compound Ingredient Component Count",
+            "long": "MAXIMUM NUMBER OF CLAIM DETAILS EXCEEDED",
+            "category": "other"
+        }
+    ],
+    "A6": [
+        {
+            "edit": "2509",
+            "short": "This Product/ Service May Be Covered Under",
+            "long": "RECIPIENT COVERED BY MEDICARE B (PHARMACY)",
+            "category": "other"
+        }
+    ],
+    "AA": [
+        {
+            "edit": "2010",
+            "short": "Patient Spenddown Not Met",
+            "long": "CLIENT HAS NOT SATISFIED SPEND-DOWN.",
+            "category": "other"
+        }
+    ],
+    "AC": [
+        {
+            "edit": "1016",
+            "short": "Product Not Covered Non-Participating",
+            "long": "MANUFACTURER IS NOT PARTICIPATING IN DRUG REBATE",
+            "category": "other"
+        }
+    ],
+    "AD": [
+        {
+            "edit": "0788",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "ENCOUNTER SUBMITTED FOR INVALID CLAIM TYPE",
+            "category": "provider"
+        },
+        {
+            "edit": "0845",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "PROVIDER NOT ALLOWED TO BILL CLAIM TYPE",
+            "category": "provider"
+        },
+        {
+            "edit": "4131",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "NO BENEFIT PLAN ASSOCIATED TO PAYER. CONTACT THE",
+            "category": "provider"
+        },
+        {
+            "edit": "4138",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "BILLING PROVIDER TYPE/SPECIALTY IS RESTRICTED FOR NDC",
+            "category": "provider"
+        },
+        {
+            "edit": "4250",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "NO REIMBURSEMENT RULE FOR THE ASSOCIATED",
+            "category": "provider"
+        },
+        {
+            "edit": "4775",
+            "short": "Billing Provider Not Eligible To Bill This Claim",
+            "long": "BILLING PROVIDER NOT AUTHORIZED TO BILL FOR",
+            "category": "provider"
+        }
+    ],
+    "AG": [
+        {
+            "edit": "3316",
+            "short": "Days Supply Limitation For Product/Service",
+            "long": "EXCEEDS THE MAXIMUM DAYS SUPPLY ALLOWED",
+            "category": "other"
+        },
+        {
+            "edit": "4165",
+            "short": "Days Supply Limitation For Product/Service",
+            "long": "MAX DAY SUPPLY RESTRICTION FOR COVERED NDC",
+            "category": "other"
+        }
+    ],
+    "AH": [
+        {
+            "edit": "4113",
+            "short": "Unit Dose Packaging Only Payable For",
+            "long": "UNIT DOSE PACKAGING COVERED FOR LTC RESIDENTS ONLY",
+            "category": "other"
+        }
+    ],
+    "CC": [
+        {
+            "edit": "0817",
+            "short": "M/I Cardholder First Name",
+            "long": "CLIENTS FIRST NAME IS MISSING",
+            "category": "member"
+        }
+    ],
+    "CD": [
+        {
+            "edit": "0238",
+            "short": "M/I Cardholder Last Name",
+            "long": "CLIENTS LAST NAME IS MISSING",
+            "category": "member"
+        },
+        {
+            "edit": "0815",
+            "short": "M/I Cardholder Last Name",
+            "long": "CLIENTS LAST NAME IS NOT VALID",
+            "category": "member"
+        }
+    ],
+    "DQ": [
+        {
+            "edit": "0268",
+            "short": "M/I Usual And Customary Charge",
+            "long": "DETAIL BILLED AMOUNT IS MISSING",
+            "category": "other"
+        },
+        {
+            "edit": "0269",
+            "short": "M/I Usual And Customary Charge",
+            "long": "DETAIL BILLED AMOUNT INVALID",
+            "category": "other"
+        },
+        {
+            "edit": "4009",
+            "short": "M/I Usual And Customary Charge",
+            "long": "ALLOWED AMOUNT LESS THAN DRUG CHARGE VARIANCE",
+            "category": "other"
+        }
+    ],
+    "DV": [
+        {
+            "edit": "0810",
+            "short": "M/I Other Payer Amount Paid",
+            "long": "THE OTHER INSURANCE AMOUNT IS MISSING OR NOT",
+            "category": "other"
+        }
+    ],
+    "E7": [
+        {
+            "edit": "0219",
+            "short": "M/I Quantity Dispensed",
+            "long": "QUANTITY DISPENSED IS MISSING",
+            "category": "other"
+        },
+        {
+            "edit": "0220",
+            "short": "M/I Quantity Dispensed",
+            "long": "QUANTITY DISPENSED IS INVALID FORMAT.",
+            "category": "other"
+        },
+        {
+            "edit": "0260",
+            "short": "M/I Quantity Dispensed",
+            "long": "UNITS OF SERVICE IS INVALID",
+            "category": "other"
+        }
+    ],
+    "M1": [
+        {
+            "edit": "2002",
+            "short": "Patient Not Covered In This Aid Category",
+            "long": "CLIENT INELIGIBLE FOR DATES OF SERVICE.",
+            "category": "other"
+        },
+        {
+            "edit": "2101",
+            "short": "Patient Not Covered In This Aid Category",
+            "long": "CLIENT IS NOT ELIGIBLE ON EMS",
+            "category": "other"
+        }
+    ],
+    "M2": [
+        {
+            "edit": "0670",
+            "short": "Recipient Locked In",
+            "long": "CLAIM TYPE NOT COVERED FOR CLIENT WITH INPATIENT",
+            "category": "member"
+        },
+        {
+            "edit": "2603",
+            "short": "Recipient Locked In",
+            "long": "RECIPIENT /PROVIDER LOCK-IN VIOLATION",
+            "category": "member"
+        }
+    ],
+    "M5": [
+        {
+            "edit": "0873",
+            "short": "Requires Manual Claim",
+            "long": "MANUALLY PRICED AT ZERO/ GREATER THAN BILLED",
+            "category": "other"
+        },
+        {
+            "edit": "6000",
+            "short": "Requires Manual Claim",
+            "long": "MANUAL PRICING REQUIRED",
+            "category": "other"
+        }
+    ],
+    "M6": [
+        {
+            "edit": "2102",
+            "short": "Host Eligibility Error",
+            "long": "CLIENT ELIGIBILITY SYSTEM IS NOT AVAILABLE",
+            "category": "other"
+        },
+        {
+            "edit": "2103",
+            "short": "Host Eligibility Error",
+            "long": "UNABLE TO DETERMINE CLIENT ELIGIBILITY",
+            "category": "other"
+        },
+        {
+            "edit": "4127",
+            "short": "Host Eligibility Error",
+            "long": "CANNOT PRIORITIZE RECIPIENTS PROGRAMS",
+            "category": "other"
+        },
+        {
+            "edit": "4130",
+            "short": "Host Eligibility Error",
+            "long": "PAYER HIERARCHY NOT FOUND",
+            "category": "other"
+        }
+    ],
+    "M7": [
+        {
+            "edit": "4014",
+            "short": "Host Drug File Error",
+            "long": "NO PRICING SEGMENT ON FILE",
+            "category": "other"
+        },
+        {
+            "edit": "4045",
+            "short": "Host Drug File Error",
+            "long": "NO REIMBURSEMENT RULE FOR ASSOCIATED BENEFIT PLAN",
+            "category": "other"
+        },
+        {
+            "edit": "4068",
+            "short": "Host Drug File Error",
+            "long": "NO REIMBURSEMENT RULE FOR ASSOCIATED CONTRACT",
+            "category": "other"
+        }
+    ],
+    "M8": [
+        {
+            "edit": "0912",
+            "short": "Host Provider File Error",
+            "long": "PROVIDER TYPE AND SPECIALTY CANNOT BE FOUND",
+            "category": "provider"
+        },
+        {
+            "edit": "7500",
+            "short": "Host Provider File Error",
+            "long": "BILLING PROVIDER ON PREPAYMENT REVIEW",
+            "category": "provider"
+        }
+    ],
+    "MR": [
+        {
+            "edit": "2811",
+            "short": "Product Not On Formulary",
+            "long": "NON-FORMULARY DRUG UNDER CURRENT DSS THRESHOLD",
+            "category": "other"
+        }
+    ],
+    "N1": [
+        {
+            "edit": "2100",
+            "short": "No patient Match Found",
+            "long": "CLIENT NOT FOUND ON ELIGIBILITY MANAGEMENT SYSTEM.",
+            "category": "other"
+        }
+    ],
+    "NP": [
+        {
+            "edit": "0838",
+            "short": "M/I Other Payer-Patient Responsibility",
+            "long": "M/I PATIENT RESPONSIBILITY AMOUNT QUALIFIER (351-NP)",
+            "category": "other"
+        }
+    ],
+    "NQ": [
+        {
+            "edit": "2820",
+            "short": "M/I Other Payer-Patient Responsibility",
+            "long": "CO-PAY ONLY CLAIM GREATER THAN $6.50 NOT ALLOWED",
+            "category": "other"
+        },
+        {
+            "edit": "2821",
+            "short": "M/I Other Payer-Patient Responsibility",
+            "long": "CO-PAY ONLY CLAIM GREATER THAN $6.60 NOT ALLOWED",
+            "category": "other"
+        },
+        {
+            "edit": "2825",
+            "short": "M/I Other Payer-Patient Responsibility",
+            "long": "CO-PAY ONLY CLAIM GREATER THAN $7.40 NOT ALLOWED",
+            "category": "other"
+        },
+        {
+            "edit": "2826",
+            "short": "M/I Other Payer-Patient Responsibility",
+            "long": "CO-PAY ONLY CLAIM GREATER THAN $8.25 NOT ALLOWED",
+            "category": "other"
+        }
+    ],
+    "P6": [
+        {
+            "edit": "2805",
+            "short": "Date Of Service Prior To Date Of Birth",
+            "long": "SERVICE IS BEFORE DATE OF BIRTH",
+            "category": "service"
+        }
+    ],
+    "R6": [
+        {
+            "edit": "1003",
+            "short": "Product/Service Not Appropriate For This",
+            "long": "BILLING PROV NOT ELIG AT SERV LOC FOR PROG BILLED",
+            "category": "other"
+        },
+        {
+            "edit": "3303",
+            "short": "Product/Service Not Appropriate For This",
+            "long": "LIVING ARRANGEMENT RESTRICTION FOR THE COVERED",
+            "category": "other"
+        },
+        {
+            "edit": "3305",
+            "short": "Product/Service Not Appropriate For This",
+            "long": "NO REIMBURSEMENT RULE FOR ASSOCIATED PATIENT",
+            "category": "other"
+        },
+        {
+            "edit": "4254",
+            "short": "Product/Service Not Appropriate For This",
+            "long": "PATIENT RESIDENCE RESTRICTION FOR NDC ON PROVIDER",
+            "category": "other"
+        }
+    ],
+    "R9": [
+        {
+            "edit": "0352",
+            "short": "Gross Amt Due Value Does Not Follow Price",
+            "long": "BILLED AMOUNT IS GREATER THAN CMAP ALLOWED",
+            "category": "other"
+        }
+    ]
+}
