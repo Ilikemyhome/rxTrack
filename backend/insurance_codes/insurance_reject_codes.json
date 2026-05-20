@@ -1021,6 +1021,14 @@
             "category": "other"
         }
     ],
+    "9G":[
+        {
+            "edit" : "00550",
+            "short" : "Maximum Quantity Exceeded",
+            "long" : "QUANTITY DISPENSED EXCEEDS MAXIMUM ALLOWED",
+            "category" : "other"
+        }
+    ],
     "9K": [
         {
             "edit": "0247",
@@ -1183,6 +1191,7 @@
             "category": "other"
         }
     ],
+   
     "M1": [
         {
             "edit": "2002",
@@ -1377,4 +1386,5 @@
             "category": "other"
         }
     ]
+
 }

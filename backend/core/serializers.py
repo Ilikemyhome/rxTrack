@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from rest_framework import serializers
 from .models import Prescription, OTMAlert, Patient
 
@@ -14,6 +15,12 @@ class OTMAlertSerializer(serializers.ModelSerializer):
 class PrescriptionSerializer(serializers.ModelSerializer):
     alerts = OTMAlertSerializer(many=True, read_only=True)
 
+    insurance_status = serializers.SerializerMethodField()
+    days_remaining = serializers.SerializerMethodField()
+    next_fill_date = serializers.SerializerMethodField()
+    action_type = serializers.SerializerMethodField()
+    theme_color = serializers.SerializerMethodField()
+
     class Meta:
         model = Prescription
         fields = [
@@ -27,10 +34,76 @@ class PrescriptionSerializer(serializers.ModelSerializer):
             "status",
             "insurance_remark",
             "last_filled_date",
-            "next_fill_date",
+            "ready_date",
             "is_high_cost",
             "alerts",   # <-- IMPORTANT
+            "insurance_status",
+            "days_remaining",
+            "next_fill_date",
+            "action_type",
+            "theme_color",
         ]
+    
+    def get_insurance_status(self, obj):
+        if not obj.insurance_remark:
+            return None
+        
+        remark = obj.insurance_remark.upper()
+
+        if "79" in remark:
+            return "Refill Too Soon"
+        if "75" in remark:
+            return "Prior Authorization Required"
+        if "MR" in remark:
+            return " Not Covered / Formulary Issue"
+        if "9G" in remark:
+            return "Quantity Limit Exceeded"
+        if "39" in remark:
+            return "Missing Diagnosis Code"
+        
+        return "Insurance Issue"
+    
+    def get_days_remaining(self, obj):
+        if not obj.last_filled_date or "79" not in (obj.insurance_remark or ""):
+            return None
+        
+        today = date.today()
+        days_since_fill = (today - obj.last_filled_date).days
+        days_supply = obj.quantity
+
+        return max(days_supply - days_since_fill, 0)
+    
+    def get_next_fill_date(self, obj):
+        if not obj.last_filled_date:
+            return None
+        
+        return obj.last_filled_date + timedelta(days=obj.quantity)
+    
+    def get_action_type(self, obj):
+
+        # If its too soon to refill, we want to show a chat explanation button that explains why and when they can refill
+        if obj.insurance_remark and "79" in obj.insurance_remark:
+            return "CHAT_EXPLANATION"
+
+        # RTS countdown
+        if obj.ready_date:
+            days_ready = (date.today() - obj.ready_date).days
+            if days_ready >= 10:
+                return "CONTACT_PHARMACY"
+            if days_ready >= 1:
+                return "PICK_UP_REMINDER"
+        return None
+    
+    def get_theme_color(self, obj):
+        if obj.ready_date:
+            days_ready = (date.today() - obj.ready_date).days
+            if days_ready >= 10:
+                return "red"
+            return "green"
+        
+        if obj.insurance_remark:
+            return "yellow"
+        return "blue"
 
 
 # PATIENT SERIALIZER

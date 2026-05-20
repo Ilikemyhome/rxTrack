@@ -42,7 +42,7 @@
     </style>
 </head>
 <body>
-    <h2>Insurence Reject Code Lookup</h2>
+    <h2>Insurance Reject Code Lookup</h2>
     <input id="codeInput" type="text" placeholder="Enter reject code (e.g., 75)">
     <button onclick="lookupCode()">Lookup</button>
 
@@ -50,7 +50,7 @@
 
     <script>
         async function lookupCode() {
-            const code = document.getElementById("codeInput").value.trim();
+            const code = document.getElementById("codeInput").value.trim().toUpperCase();
             if (!code) return;
 
             const response = await fetch(`http://127.0.0.1:8000/api/reject/interpret/?code=${code}`);
