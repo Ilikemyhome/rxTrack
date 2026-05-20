@@ -33,7 +33,7 @@ class Prescription(models.Model):
     is_high_cost = models.BooleanField()
     is_Controlled = models.BooleanField(default=False)
     insurance_remark = models.TextField(blank=True, null=True)  
-    
+    days_supply = models.IntegerField(null=True, blank=True)  
     
 
     # string representation of the prescription model
