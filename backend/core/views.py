@@ -7,6 +7,7 @@ from .models import Prescription, OTMAlert, Patient
 from .serializers import PrescriptionSerializer, OTMAlertSerializer, PatientSerializer, PatientDashboardSerializer
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from datetime import date, timedelta
 import json
 
 from insurance_codes.interpreter import interpret_reject_code
@@ -77,7 +78,10 @@ def prescription_explanation(request, rx_number):
     
     # if no ins remark, nothing to explain
     if not prescription.insurance_remark:
-        return Response({"message": "No insurance issues for this prescription"}, status=200)
+        return Response({
+            "reason": None,
+            "message": "No insurance issues for this prescription"
+            },status=200)
     
     # extract reject code from insurance remark
     remark = prescription.insurance_remark.upper()
@@ -88,15 +92,27 @@ def prescription_explanation(request, rx_number):
             code = part
             break
 
-    if not code:
-        return Response({ "message": "Unable to deteermine insurence reject code." }, status=200)
+  
     
     # interpret the code
-    explanation = interpret_reject_code(code)
+    explanation = interpret_reject_code(code) if code else {}
+
+    response = {
+        "reason": explanation.get("reason"),
+        "message": explanation.get("message") or "Insurance issue detected"
+    }
 
     # refill too soon if needed
     if code == "79" and prescription.last_filled_date:
         today = date.today()
         days_since_fill = (today - prescription.last_filled_date).days
         days_supply = prescription.days_supply or prescription.quantity  # Fallback to quantity if days_supply is not provided
+        days_remaining = max(days_supply - days_since_fill, 0)
+        next_fill = prescription.last_filled_date + timedelta(days=days_supply)
 
+        
+        response["days_remaining"] = days_remaining
+        response["next_fill_date"] = next_fill
+
+    return Response(response, status=200)
+       

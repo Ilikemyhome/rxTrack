@@ -69,7 +69,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         
         today = date.today()
         days_since_fill = (today - obj.last_filled_date).days
-        days_supply = obj.quantity
+        days_supply = obj.days_supply or obj.quantity  # Fallback to quantity if days_supply is not provided
 
         return max(days_supply - days_since_fill, 0)
     
@@ -77,7 +77,10 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         if not obj.last_filled_date:
             return None
         
-        return obj.last_filled_date + timedelta(days=obj.quantity)
+        if not obj.days_supply:
+            return None
+        
+        return obj.last_filled_date + timedelta(days=obj.days_supply)
     
     def get_action_type(self, obj):
 
