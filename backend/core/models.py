@@ -28,7 +28,7 @@ class Prescription(models.Model):
     is_high_cost = models.BooleanField()
     refills_left = models.IntegerField(default=0)
     insurance_remark = models.TextField(blank=True, null=True)  
-    
+    days_supply = models.IntegerField(null=True, blank=True)  
     
 
     # string representation of the prescription model

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .models import Prescription, OTMAlert, Patient
 from .serializers import PrescriptionSerializer, OTMAlertSerializer, PatientSerializer, PatientDashboardSerializer
 from django.http import JsonResponse
@@ -64,4 +65,38 @@ def interpret_reject_view(request):
     
     result = interpret_reject_code(code)
 
+
+@api_view(["GET"])
+def prescription_explanation(request, rx_number):
+
+    # find prescription by rx_number
+    try:
+        prescription = Prescription.objects.get(rx_number=rx_number)
+    except Prescription.DoesNotExist:
+        return Response({"error": "Prescription not found"}, status=404)
+    
+    # if no ins remark, nothing to explain
+    if not prescription.insurance_remark:
+        return Response({"message": "No insurance issues for this prescription"}, status=200)
+    
+    # extract reject code from insurance remark
+    remark = prescription.insurance_remark.upper()
+    code = None
+
+    for part in remark.split():
+        if part.isdigit() or (len(part) == 2 and part.isalnum()):
+            code = part
+            break
+
+    if not code:
+        return Response({ "message": "Unable to deteermine insurence reject code." }, status=200)
+    
+    # interpret the code
+    explanation = interpret_reject_code(code)
+
+    # refill too soon if needed
+    if code == "79" and prescription.last_filled_date:
+        today = date.today()
+        days_since_fill = (today - prescription.last_filled_date).days
+        days_supply = prescription.days_supply or prescription.quantity  # Fallback to quantity if days_supply is not provided
 
