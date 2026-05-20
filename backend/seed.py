@@ -32,8 +32,8 @@ def run():
         refills_left=0,
         rx_number="RX219733",
         status="Ready",
+        ready_date=date.today() - timedelta(days=2),
         last_filled_date=date.today() - timedelta(days=30),
-        next_fill_date=date.today() + timedelta(days=30),
         is_high_cost=False,
         insurance_remark=""
     )
@@ -48,7 +48,7 @@ def run():
         rx_number="RX219734",
         status="Ready",
         last_filled_date=date.today() - timedelta(days=30),
-        next_fill_date=date.today() + timedelta(days=30),
+        ready_date=date.today() - timedelta(days=2),
         is_high_cost=False,
         insurance_remark=""
     )
@@ -74,7 +74,6 @@ def run():
         status="Delayed",
         insurance_remark="REJECT MR: PRODUCT NOT IN FORMULARY",
         last_filled_date=None,      # NEW prescription stuck in insurance
-        next_fill_date=None,        # No refill cycle yet
         is_high_cost=True
     )
 
@@ -89,7 +88,6 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 9G: QUANTITY EXCEEDS MAXIMUM ALLOWED",
         last_filled_date=None,      # NEW prescription stuck in insurance
-        next_fill_date=None,
         is_high_cost=False
     )
 
@@ -114,7 +112,6 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 39: MISSING DIAGNOSIS CODE",
         last_filled_date=None,      # Never filled
-        next_fill_date=None,
         is_high_cost=False
     )
 
@@ -137,21 +134,20 @@ def run():
         status="Ready",
         insurance_remark="",
         last_filled_date=date.today() - timedelta(days=30),
-        next_fill_date=date.today() + timedelta(days=30),
-        is_high_cost=False
+        is_high_cost=False,
+        ready_date=date.today() - timedelta(days=10)
     )
     rx7 = Prescription.objects.create(
         patient=patient4,
         drug_name="Alprazolam",
         dosage="0.25mg",
-        sig="Take one tablet by mouth as needed for anxiety",
+        sig="Take one tablet by mouth daily as needed for anxiety",
         quantity=30,
         refills_left=0,
         rx_number="RX498879",
         status="In Progress",
         insurance_remark="",
         last_filled_date=None,
-        next_fill_date=None,
         is_high_cost=False
     )
 
@@ -166,7 +162,6 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 79: REFILL TOO SOON",
         last_filled_date=date.today() - timedelta(days=10),
-        next_fill_date=date.today() + timedelta(days=20),
         is_high_cost=False
     )
 
@@ -191,7 +186,6 @@ def run():
         status="Delayed",
         insurance_remark="",
         last_filled_date=date.today() - timedelta(days=90),
-        next_fill_date=date.today() - timedelta(days=30),
         is_high_cost=False
     )
     # Alerts
