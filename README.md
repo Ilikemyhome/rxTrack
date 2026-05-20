@@ -4,124 +4,126 @@ The system provides prescription management, refill logic, insurance reject expl
 
 ## Features
 Backend (Django + DRF)
-REST API for prescriptions
+- REST API for prescriptions
 
-Automatic next‑fill date calculation
+- Automatic next‑fill date calculation
 
-Insurance reject explanation endpoint
+- Insurance reject explanation endpoint
 
-CORS‑enabled for frontend communication
+- CORS‑enabled for frontend communication
 
-Seed script for demo data
+- Seed script for demo data
 
-Clean, modular project structure
+- Clean, modular project structure
 
 Frontend (React)
-Fetches prescription data from Django
+- Fetches prescription data from Django
 
-Displays live API results
+- Displays live API results
 
-Ready for UI expansion (chat, dashboard, etc.)
+- Ready for UI expansion (chat, dashboard, etc.)
 
-Runs on local network for multi‑device testing
+- Runs on local network for multi‑device testing
 
 ## Tech Stack
 Backend
-Python 3
+- Python 3
 
-Django
+- Django
 
-Django REST Framework
+- Django REST Framework
 
-PostgreSQL (or SQLite during development)
+- PostgreSQL (or SQLite during development)
 
 Frontend
-React (Create‑React‑App)
+- React (Create‑React‑App)
 
-JavaScript / JSX
+- JavaScript / JSX
 
-Fetch API
+- Fetch API
 
 ## Project Structure
 
-rxTrack/
-│
-|- backend/
-│   |-- core/
-│   │   |--models.py
-│   │   |--serializers.py
-│   │   |-- views.py
-│   │   |__ urls.py
-│   |-- rxTrack/
-│   |__ manage.py
-│
-|--frontend-react/
-│   |-- src/
-│   |-- public/
-│   |__ package.json
-│
-|__ frontend/   ← original HTML prototype
+    rxTrack/
+    |
+    |- backend/
+    |   |-- core/
+    |   │   |--models.py
+    |   │   |--serializers.py
+    │   │   |-- views.py
+    │   │   |__ urls.py
+    │   |-- rxTrack/
+    │   |__ manage.py
+    │
+    |--frontend-react/
+    │   |-- src/
+    │   |-- public/
+    │   |__ package.json
+    │
+    |__ frontend/   # original HTML prototype
 
 
 ## Backend Setup
 1. Create virtual environment
 
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
+        python -m venv venv
+   
+        source venv/bin/activate   # Mac/Linux
+   
+        venv\Scripts\activate      # Windows
 
 2. Install dependencies
 
-pip install -r requirements.txt
+        pip install -r requirements.txt
 3. Run migrations
 
-python manage.py makemigrations
-python manage.py migrate
+        python manage.py makemigrations
+        python manage.py migrate
 
 4. Seed demo data (optional)
 
-python seed.py
+        python seed.py
 
 5. Start backend server
 
-python manage.py runserver 0.0.0.0:8000
+        python manage.py runserver 0.0.0.0:8000
 
 ## Frontend Setup
 1. Navigate to React app
 
-cd frontend-react
+        cd frontend-react
 2. Install dependencies
 
-npm install
+        npm install
 3. Start development server
 
-npm start
+        npm start
 React runs at:
 
-http://10.0.0.63:3000
+    http://10.0.0.63:3000
 
 ## API Endpoints
-GET /api/prescriptions/
+    GET /api/prescriptions/
 Returns all prescriptions.
 
-GET /api/prescriptions/<id>/explanation/
+    GET /api/prescriptions/<id>/explanation/
 Returns insurance reject explanation for a specific prescription.
 
 ## Testing the Connection
 React fetch example:
 
-jsx
-useEffect(() => {
-  fetch("http://10.0.0.63:8000/api/prescriptions/")
-    .then(res => res.json())
-    .then(data => console.log("DJANGO SAYS:", data));
-}, []);
+    jsx
+    useEffect(() => {
+      fetch("http://10.0.0.63:8000/api/prescriptions/")
+        .then(res => res.json())
+        .then(data => console.log("DJANGO SAYS:", data));
+    }, []);
 
 ## License
 This project is proprietary.
 Unauthorized copying, modification, or distribution is prohibited.
 
-### Author
+## Author
 Ingrid Arenas Rosas  
 Application Development — North Seattle College
 Backend & Pharmacy Workflow Engineering
