@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 from rest_framework import serializers
 from .models import Prescription, OTMAlert, Patient
+from django.contrib.auth.models import User
 
 
 # OTM ALERT SERIALIZER
@@ -120,6 +121,7 @@ class PatientSerializer(serializers.ModelSerializer):
             "last_name",
             "date_of_birth",
             "phone_number",
+            "email",
         ]
 
 
