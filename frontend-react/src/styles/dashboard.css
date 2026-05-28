@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f7fb;
+    color: #1f2933;
+}
+
+.dashboard {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px 40px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2933;
+    
+}
+.dashboard-section.alerts-section {
+    margin-top: 24px;
+}
+
+.dashboard-subtitle {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.dashboard-meta p {
+    margin: 0;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.dashboard-section {
+    margin-top: 24px;
+}
+
+.dashboard-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.prescription-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.prescription-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 18px 14px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.prescription-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prescription-card h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.rx-number {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.dosage {
+    margin: 4px 0 0;
+    font-weight: 500;
+}
+
+.sig {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.insurance-banner {
+    margin-top: 6px;
+}
+
+.pill-pill--yellow,
+.pill-pill--red,
+.pill-pill--green,
+.pill-pill--blue {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.pill-pill--yellow {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.pill-pill--red {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.pill-pill--green {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.pill-pill--blue {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.status-pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-pill--ready {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-pill--delayed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-pill--in\ progress {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.prescription-footer {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meta-text {
+    margin: 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.primary-button,
+.secondary-button {
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.primary-button {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+.secondary-button {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.secondary-button:hover {
+    background: #e5e7eb;
+}
+
+.alert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.empty-text {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* ----------------------------- */
+/* MOBILE LAYOUT ADDITIONS       */
+/* ----------------------------- */
+
+/* Greeting header */
+.header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Section titles (mobile style) */
+.section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Mobile stacked prescription list */
+.prescription-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Mobile alert cards */
+.alert-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 999;
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.details-toggle {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.rts-details {
+    margin-top: 6px;
+}
+
+
+/* ----------------------------- */
+/* RESPONSIVE OVERRIDES          */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+
+    /* Remove desktop margins */
+    .dashboard {
+        margin: 0;
+        padding: 24px 16px 100px;
+    }
+
+    /* Replace grid with stacked cards */
+    .prescription-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Make cards match the mockup style */
+    .prescription-card {
+        border-radius: 16px;
+        padding: 16px;
+    }
+
+    /* Hide the desktop header if you want */
+    .dashboard-header {
+        display: none;
+    }
+}

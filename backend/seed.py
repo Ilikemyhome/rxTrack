@@ -20,7 +20,8 @@ def run():
         first_name="Princess",
         last_name="Felix",
         date_of_birth=date(2004, 5, 15),
-        phone_number="123-456-7890"
+        phone_number="123-456-7890",
+        email="princess.felix@example.com"
     )
 
     rx1 = Prescription.objects.create(
@@ -60,8 +61,9 @@ def run():
     patient2 = Patient.objects.create(
         first_name="Nova",
         last_name="Foo",
-        date_of_birth=date(1990, 8, 20),
-        phone_number="987-654-3210"
+        date_of_birth=date(1950, 8, 20),
+        phone_number="987-654-3210",
+        email="nova.foo@example.com"
     )
 
     rx3 = Prescription.objects.create(
@@ -99,7 +101,8 @@ def run():
         first_name="Kyna",
         last_name="Borja",
         date_of_birth=date(2005, 7, 11),
-        phone_number="555-987-6543"
+        phone_number="555-987-6543",
+        email="kyna.borja@example.com"
     )
 
     rx5 = Prescription.objects.create(
@@ -122,7 +125,8 @@ def run():
         first_name="Ingrid",
         last_name="Arenas",
         date_of_birth=date(2005, 12, 8),
-        phone_number="555-123-4567"
+        phone_number="555-123-4567",
+        email="ingrid.arenas@example.com"
     )
 
     rx6 = Prescription.objects.create(
@@ -175,7 +179,8 @@ def run():
         first_name="Danuel",
         last_name="Delmundo",
         date_of_birth=date(1985, 3, 22),
-        phone_number="555-321-6549"
+        phone_number="555-321-6549",
+        email="danuel.delmundo@example.com"
     )
 
     rx9 = Prescription.objects.create(

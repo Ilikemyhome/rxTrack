@@ -21,6 +21,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
     next_fill_date = serializers.SerializerMethodField()
     action_type = serializers.SerializerMethodField()
     theme_color = serializers.SerializerMethodField()
+    patient_message = serializers.SerializerMethodField()
 
     class Meta:
         model = Prescription
@@ -43,6 +44,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
             "next_fill_date",
             "action_type",
             "theme_color",
+            "patient_message",
         ]
     
     def get_insurance_status(self, obj):
@@ -89,6 +91,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         if obj.insurance_remark and "79" in obj.insurance_remark:
             return "CHAT_EXPLANATION"
 
+        
         # RTS countdown
         if obj.ready_date:
             days_ready = (date.today() - obj.ready_date).days
@@ -98,6 +101,24 @@ class PrescriptionSerializer(serializers.ModelSerializer):
                 return "PICK_UP_REMINDER"
         return None
     
+    def get_patient_message(self, obj):
+        # 1. Refill too soon
+        if obj.insurance_remark and "79" in obj.insurance_remark:
+            return None
+
+        # 2. Return to stock logic (RTS)
+        if obj.ready_date:
+            days_ready = (date.today() - obj.ready_date).days
+
+            if days_ready >= 10:
+                return "This prescription has been ready for over 10 days and may be returned to stock soon. Please contact the pharmacy."
+
+            if days_ready >= 1:
+                return f"Your prescription has been ready for {days_ready} days. Please pick it up soon."
+
+        # 3. Default
+        return None
+
     def get_theme_color(self, obj):
         if obj.ready_date:
             days_ready = (date.today() - obj.ready_date).days
@@ -108,6 +129,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         if obj.insurance_remark:
             return "yellow"
         return "blue"
+    
 
 
 # PATIENT SERIALIZER
@@ -143,3 +165,14 @@ class PatientDashboardSerializer(serializers.ModelSerializer):
             "prescriptions",
             "patient_alerts",
         ]
+class SignupSerializer(serializers.Serializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    dob = serializers.DateField(required=True)
+    phone = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(write_only=True, required=True)
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(write_only=True, required=True)
