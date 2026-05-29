@@ -1,4 +1,9 @@
 import React from 'react';
+import homeIcon from '../images/home.png';
+import presIcon from  '../images/capsules.png';
+import settingsIcon from  '../images/settings.png';
+import bellIcon from  '../images/ringing.png';
+import chat from '../images/chat-ai.png';
 
 
 interface OTMAlert {
@@ -47,15 +52,34 @@ function getGreeting() {
 
 
 const PatientDashboard: React.FC<Props> = ({ patient, prescriptions, alerts }) => {
+  const [activeTab, setActiveTab] = React.useState('home');
+
   return (
+    <>
+          <nav className="desktop-nav">
+        <div className="nav-left">
+          <h2 className='desktop-greeting'>{getGreeting()}, {patient.first_name}</h2>
+        </div>
+
+        <div className="nav-right">
+          <button className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} onClick={() => setActiveTab('home')}>Home</button>
+          <button className={`nav-link ${activeTab === 'prescriptions' ? 'active' : ''}`} onClick={() => setActiveTab('prescriptions')}>Prescriptions</button>
+          <button className={`nav-link ${activeTab === 'notifications' ? 'active' : ''}`} onClick={() => setActiveTab('notifications')}>Notifications</button>
+          <button className={`nav-link ${activeTab === 'chat' ? 'active' : ''}`} onClick={() => setActiveTab('chat')}>Chat</button>
+        </div>
+      </nav>
+
     <div className="dashboard">
 
       {/* Greeting */}
       
-      <header className="header">
+      <div className='header'>
         <h2>{getGreeting()}, {patient.first_name}</h2>
-      </header>
+      </div>
+      
 
+
+        
       {/* PRESCRIPTIONS SECTION */}
       <section className="section">
         <h3>Your Prescriptions</h3>
@@ -88,14 +112,36 @@ const PatientDashboard: React.FC<Props> = ({ patient, prescriptions, alerts }) =
       </section>
 
       {/* BOTTOM NAV */}
+
+      {/* this is for mobile */}
       <nav className="bottom-nav">
-        <button>home</button>
-        <button>prescriptions</button>
-        <button>notifications</button>
-        <button>chat</button>
+        <button className={`nav-icon ${activeTab === 'home' ? 'active' : ''}`} onClick={() => setActiveTab('home')}>
+          <img src= {homeIcon} alt='Home'  />
+
+        </button>
+        <button className={`nav-icon ${activeTab === 'prescriptions' ? 'active' : ''}`} onClick={() => setActiveTab('prescriptions')}>
+          <img src= {presIcon} alt='prescriptions'  />
+
+        </button>
+        <button className={`nav-icon ${activeTab === 'notifications' ? 'active' : ''}`} onClick={() => setActiveTab('notifications')}>
+          <img src= {bellIcon} alt='notifications'  />
+
+        </button>
+        <button className={`nav-icon ${activeTab === 'chat' ? 'active' : ''}`} onClick={() => setActiveTab('chat')}>
+          <img src= {chat} alt='aichat'  />
+        </button>
+        <button className={`nav-icon ${activeTab === 'settings' ? 'active' : ''}`} onClick={() => setActiveTab('settings')}>
+          <img src= {settingsIcon} alt='settings'  />
+        </button>
+
+        
       </nav>
 
+
+     
+
     </div>
+    </>
   );
 };
 

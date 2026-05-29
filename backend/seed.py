@@ -136,7 +136,7 @@ def run():
         sig="Take one tablet by mouth once daily",
         quantity=30,
         refills_left=0,
-        rx_number="RX298878",
+        rx_number="RX698878",
         status="Ready",
         insurance_remark="",
         last_filled_date=date.today() - timedelta(days=30),

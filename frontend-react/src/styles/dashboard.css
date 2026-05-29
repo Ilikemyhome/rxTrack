@@ -1,3 +1,31 @@
+:root {
+  /* Primary Brand */
+  --color-primary: #134074;
+  --color-primary-dark: #13315c;
+  --color-primary-deep: #0b2545;
+
+  /* Secondary / Accent */
+  --color-accent: #8da9c4;
+  --color-bg-soft: #f0f0f0;
+
+  /* Neutrals */
+  --color-text: #1f2933;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+  --color-card: #fafafa;
+
+  /* Semantic */
+  --status-ready-bg: #dcfce7;
+  --status-ready-text: #166534;
+
+  --status-delayed-bg: #fee2e2;
+  --status-delayed-text: #991b1b;
+
+  --status-progress-bg: #e0f2fe;
+  --status-progress-text: #1d4ed8;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,8 +34,8 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f5f7fb;
-    color: #1f2933;
+    background-color: var(--color-bg-soft);
+    color: var(--color-text);
 }
 
 .dashboard {
@@ -52,6 +80,7 @@ body {
 .dashboard-section h2 {
     font-size: 18px;
     margin-bottom: 12px;
+    
 }
 
 .prescription-grid {
@@ -61,11 +90,11 @@ body {
 }
 
 .prescription-card {
-    background: #ffffff;
+    background: var(--color-card);
     border-radius: 16px;
     padding: 16px 18px 14px;
     box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -142,18 +171,18 @@ body {
 }
 
 .status-pill--ready {
-    background: #dcfce7;
-    color: #166534;
+    background: var(--status-ready-bg);
+    color: var(--status-ready-text);
 }
 
 .status-pill--delayed {
-    background: #fee2e2;
-    color: #991b1b;
+    background: var(--status-delayed-bg);
+    color: var(--status-delayed-text);
 }
 
 .status-pill--in\ progress {
-    background: #e0f2fe;
-    color: #1d4ed8;
+    background: var(--status-progress-bg);
+    color: var(--status-progress-text);
 }
 
 .prescription-footer {
@@ -182,17 +211,17 @@ body {
 }
 
 .primary-button {
-    background: #2563eb;
+    background: var(--color-primary);
     color: white;
 }
 
 .primary-button:hover {
-    background: #1d4ed8;
+    background: var(--color-primary-dark);
 }
 
 .secondary-button {
-    background: #f3f4f6;
-    color: #111827;
+    background: var(--color-accent);
+    color: var(--color-primary-deep);
 }
 
 .secondary-button:hover {
@@ -235,6 +264,7 @@ body {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 12px;
+    margin-top: 20px;
 }
 
 /* Mobile stacked prescription list */
@@ -273,6 +303,65 @@ body {
     font-size: 14px;
     color: #4b5563;
 }
+
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 32px;
+        background: var(--color-primary-deep);
+        border-bottom: 1px solid var(--color-border);
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .desktop-greeting {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+        color: var(--color-card);
+    }
+
+    .header{
+        display: none;
+    }
+    .nav-right {
+        display: flex;
+        gap: 28px;
+    }
+
+    .nav-link {
+        background: none;
+        border: none;
+        font-size: 15px;
+        color: var(--color-card);
+        font-weight: 500;
+        cursor: pointer;
+        padding: 6px 0;
+    }
+
+    .nav-link:hover {
+        color: var(--color-accent);
+    }
+    .bottom-nav{
+        display: none;
+    }
+    .dashboard{
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px 40px;
+    }
+
+}
+
 
 .details-toggle {
     background: none;
@@ -318,4 +407,64 @@ body {
     .dashboard-header {
         display: none;
     }
+    .bottom-nav {
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 12px; 
+        background: var(--color-primary-dark);
+    }
+
+
+    .bottom-nav button {
+        font-size: 14px;
+        padding: 0 4px; /* optional */
+        white-space: nowrap; /* prevents wrapping */
+        color: var(--color-card);
+    }
+
+    .nav-icon img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bottom-nav .nav-icon {
+        background: none;
+        border: none;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         filter: invert(1);
+    }
+
+    .bottom-nav .nav-icon img {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .bottom-nav button img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .bottom-nav .nav-icon.active {
+        background-color: var(--color-bg-soft);
+        border-radius: 8px;
+        filter: invert(0);
+    }
+
+    .nav-link.active {
+        color: var(--color-accent);
+        font-weight: 600;
+    }
+
 }

@@ -26,7 +26,7 @@ function PatientDashboardWrapper() {
   const [data, setData] = React.useState<any>(null);
 
   React.useEffect(() => {
-    fetch("http://10.0.0.63:8000/api/patients/4/dashboard/")
+    fetch("http://10.0.0.63:8000/api/patients/5/dashboard/")
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
