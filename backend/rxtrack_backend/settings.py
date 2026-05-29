@@ -94,6 +94,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://10.0.0.63:3000",
     "http://localhost:3000",
 ]
+ALLOWED_HOSTS = ["10.0.0.63", "localhost", "127.0.0.1"]
+
 
 
 # Password validation

@@ -1,14 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 # creates patient model with first name, last name, date of birth, and phone number
 class Patient(models.Model):
+    user = models.OneToOneField(
+        User,
+        on_delete = models.SET_NULL,
+        null = True,
+        blank = True,
+        related_name = "patient_profile"
+    )
+    
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     phone_number = models.CharField(max_length=20)
+    email = models.EmailField(null=True, blank=True)
 
     # string representation of the patient model
     def __str__(self):

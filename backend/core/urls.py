@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import PrescriptionViewSet, PatientViewset, PatientDashboardViewSet, interpret_reject_view
+from .views import PrescriptionViewSet, PatientViewset, PatientDashboardViewSet, interpret_reject_view, SignupView, LoginView, OTMAlertViewSet
 
 
 router = DefaultRouter()
@@ -11,4 +11,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('patients/<int:patient_id>/dashboard/', PatientDashboardViewSet.as_view(), name='patient-dashboard'),
     path('reject/interpret/', interpret_reject_view),
+    path('signup/', SignupView.as_view(), name='signup'),
+    path('login/', LoginView.as_view(), name='login'),
 ]

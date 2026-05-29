@@ -1,0 +1,470 @@
+:root {
+  /* Primary Brand */
+  --color-primary: #134074;
+  --color-primary-dark: #13315c;
+  --color-primary-deep: #0b2545;
+
+  /* Secondary / Accent */
+  --color-accent: #8da9c4;
+  --color-bg-soft: #f0f0f0;
+
+  /* Neutrals */
+  --color-text: #1f2933;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+  --color-card: #fafafa;
+
+  /* Semantic */
+  --status-ready-bg: #dcfce7;
+  --status-ready-text: #166534;
+
+  --status-delayed-bg: #fee2e2;
+  --status-delayed-text: #991b1b;
+
+  --status-progress-bg: #e0f2fe;
+  --status-progress-text: #1d4ed8;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg-soft);
+    color: var(--color-text);
+}
+
+.dashboard {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px 40px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2933;
+    
+}
+.dashboard-section.alerts-section {
+    margin-top: 24px;
+}
+
+.dashboard-subtitle {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.dashboard-meta p {
+    margin: 0;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.dashboard-section {
+    margin-top: 24px;
+}
+
+.dashboard-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    
+}
+
+.prescription-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.prescription-card {
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: 16px 18px 14px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.prescription-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prescription-card h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.rx-number {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.dosage {
+    margin: 4px 0 0;
+    font-weight: 500;
+}
+
+.sig {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.insurance-banner {
+    margin-top: 6px;
+}
+
+.pill-pill--yellow,
+.pill-pill--red,
+.pill-pill--green,
+.pill-pill--blue {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.pill-pill--yellow {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.pill-pill--red {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.pill-pill--green {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.pill-pill--blue {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.status-pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-pill--ready {
+    background: var(--status-ready-bg);
+    color: var(--status-ready-text);
+}
+
+.status-pill--delayed {
+    background: var(--status-delayed-bg);
+    color: var(--status-delayed-text);
+}
+
+.status-pill--in\ progress {
+    background: var(--status-progress-bg);
+    color: var(--status-progress-text);
+}
+
+.prescription-footer {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meta-text {
+    margin: 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.primary-button,
+.secondary-button {
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.primary-button {
+    background: var(--color-primary);
+    color: white;
+}
+
+.primary-button:hover {
+    background: var(--color-primary-dark);
+}
+
+.secondary-button {
+    background: var(--color-accent);
+    color: var(--color-primary-deep);
+}
+
+.secondary-button:hover {
+    background: #e5e7eb;
+}
+
+.alert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.empty-text {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* ----------------------------- */
+/* MOBILE LAYOUT ADDITIONS       */
+/* ----------------------------- */
+
+/* Greeting header */
+.header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Section titles (mobile style) */
+.section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+/* Mobile stacked prescription list */
+.prescription-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Mobile alert cards */
+.alert-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 999;
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 32px;
+        background: var(--color-primary-deep);
+        border-bottom: 1px solid var(--color-border);
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .desktop-greeting {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+        color: var(--color-card);
+    }
+
+    .header{
+        display: none;
+    }
+    .nav-right {
+        display: flex;
+        gap: 28px;
+    }
+
+    .nav-link {
+        background: none;
+        border: none;
+        font-size: 15px;
+        color: var(--color-card);
+        font-weight: 500;
+        cursor: pointer;
+        padding: 6px 0;
+    }
+
+    .nav-link:hover {
+        color: var(--color-accent);
+    }
+    .bottom-nav{
+        display: none;
+    }
+    .dashboard{
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px 40px;
+    }
+
+}
+
+
+.details-toggle {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.rts-details {
+    margin-top: 6px;
+}
+
+
+/* ----------------------------- */
+/* RESPONSIVE OVERRIDES          */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+
+    /* Remove desktop margins */
+    .dashboard {
+        margin: 0;
+        padding: 24px 16px 100px;
+    }
+
+    /* Replace grid with stacked cards */
+    .prescription-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Make cards match the mockup style */
+    .prescription-card {
+        border-radius: 16px;
+        padding: 16px;
+    }
+
+    /* Hide the desktop header if you want */
+    .dashboard-header {
+        display: none;
+    }
+    .bottom-nav {
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 12px; 
+        background: var(--color-primary-dark);
+    }
+
+
+    .bottom-nav button {
+        font-size: 14px;
+        padding: 0 4px; /* optional */
+        white-space: nowrap; /* prevents wrapping */
+        color: var(--color-card);
+    }
+
+    .nav-icon img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bottom-nav .nav-icon {
+        background: none;
+        border: none;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         filter: invert(1);
+    }
+
+    .bottom-nav .nav-icon img {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .bottom-nav button img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .bottom-nav .nav-icon.active {
+        background-color: var(--color-bg-soft);
+        border-radius: 8px;
+        filter: invert(0);
+    }
+
+    .nav-link.active {
+        color: var(--color-accent);
+        font-weight: 600;
+    }
+
+}
