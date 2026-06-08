@@ -34,15 +34,6 @@ function PatientDashboardWrapper() {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <PatientDashboard
-      patient={{
-        first_name: data.first_name,
-        last_name: data.last_name,
-        date_of_birth: data.date_of_birth,
-        phone_number: data.phone_number
-      }}
-      prescriptions={data.prescriptions}
-      alerts={data.patient_alerts}
-    />
+    <PatientDashboard/>
   );
 }

@@ -13,4 +13,6 @@ urlpatterns = [
     path('reject/interpret/', interpret_reject_view),
     path('signup/', SignupView.as_view(), name='signup'),
     path('login/', LoginView.as_view(), name='login'),
+    path("api/", include("api.urls")),
+
 ]
