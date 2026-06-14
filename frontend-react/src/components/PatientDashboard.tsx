@@ -33,6 +33,9 @@ interface Patient {
   phone_number: string;
 }
 
+interface Props {
+  data : any;
+}
 function getGreeting() {
   const hour = new Date().getHours();
   if (hour < 12) return "Good morning";
@@ -40,7 +43,7 @@ function getGreeting() {
   return "Good evening";
 }
 
-const PatientDashboard: React.FC = () => {
+const PatientDashboard: React.FC<Props> = ({ data }) => {
   const [activeTab, setActiveTab] = React.useState('home');
   const [patient, setPatient] = React.useState<Patient | null>(null);
   const [prescriptions, setPrescriptions] = React.useState<Prescription[]>([]);

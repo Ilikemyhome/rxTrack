@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ const Login = () => {
   const [shake, setShake] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   // Load saved email/token on page load
   useEffect(() => {
@@ -65,18 +67,26 @@ const Login = () => {
 
       if (response.ok) {
         const token = data.token;
+        const patientId = data.patient_id;
+
+        if(!token || !patientId) {
+          setPasswordError("Invalid server response");
+          return;
+        }
 
         // Save token based on Remember Me
         if (rememberMe) {
           localStorage.setItem("authToken", token);
           localStorage.setItem("savedEmail", email);
+          localStorage.setItem("patientId", patientId);
         } else {
           sessionStorage.setItem("authToken", token);
           localStorage.removeItem("savedEmail");
+          localStorage.removeItem("patientId");
         }
 
         console.log("Logged in!");
-        // redirect later
+        navigate("/dashboard");
       } else {
         setPasswordError("Invalid email or password");
       }
