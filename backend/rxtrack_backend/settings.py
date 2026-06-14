@@ -96,6 +96,11 @@ CORS_ALLOWED_ORIGINS = [
 ]
 ALLOWED_HOSTS = ["10.0.0.63", "localhost", "127.0.0.1"]
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
 
 
 # Password validation

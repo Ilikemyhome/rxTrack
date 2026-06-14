@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view
 from .models import Prescription, OTMAlert, Patient
 from .serializers import PrescriptionSerializer, OTMAlertSerializer, PatientSerializer, PatientDashboardSerializer, SignupSerializer, LoginSerializer
@@ -104,6 +105,7 @@ class SignupView(APIView):
 
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
+    
 
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -120,6 +122,7 @@ class LoginView(APIView):
         if not user:
             return Response({"error": "Invalid email or password"}, status=status.HTTP_401_UNAUTHORIZED)
         
+        token, created = Token.objects.get_or_create(user=user)
         patient = getattr(user, "patient_profile", None)
 
         if patient:
@@ -128,6 +131,8 @@ class LoginView(APIView):
             alerts_data = OTMAlertSerializer(patient.patient_alerts.all(), many=True).data
 
             return Response({
+                "token" : token.key,
+                "patient_id" : patient.id,
                 "user_id": user.id,
                 "email": user.email,
                 "has_patient": True,
@@ -137,6 +142,8 @@ class LoginView(APIView):
             }, status=status.HTTP_200_OK)
         
         return Response({
+            "token" : token.key,
+            "patient_id" : None,
             "user_id": user.id,
             "email": user.email,
             "has_patient": False,

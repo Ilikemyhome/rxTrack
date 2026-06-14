@@ -1,7 +1,7 @@
 import "./styles/dashboard.css";
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
 import PatientDashboard from "./components/PatientDashboard";
 import Login from "./components/Login";
@@ -24,25 +24,36 @@ export default App;
 
 function PatientDashboardWrapper() {
   const [data, setData] = React.useState<any>(null);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    fetch("http://10.0.0.63:8000/api/patients/5/dashboard/")
+
+    const token = 
+      localStorage.getItem("authToken") ||
+      sessionStorage.getItem("authToken");
+
+    const patientId = 
+      localStorage.getItem("patient_id") ||
+      sessionStorage.getItem("patient_id");
+
+    if (!token || !patientId) {
+      console.log("No token found");
+      navigate("/");
+      return;
+    }
+    fetch(`http://10.0.0.63:8000/api/patients/${patientId}/dashboard/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      }
+    })
       .then((res) => res.json())
-      .then((json) => setData(json));
+      .then((json) => setData(json))
+      .catch((error) => console.error("Error fetching dashboard data:", error));
   }, []);
 
   if (!data) return <p>Loading...</p>;
 
   return (
-    <PatientDashboard
-      patient={{
-        first_name: data.first_name,
-        last_name: data.last_name,
-        date_of_birth: data.date_of_birth,
-        phone_number: data.phone_number
-      }}
-      prescriptions={data.prescriptions}
-      alerts={data.patient_alerts}
-    />
+    <PatientDashboard data={data} />
   );
 }
