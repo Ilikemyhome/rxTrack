@@ -54,7 +54,11 @@ class SignupView(APIView):
 
     def post(self, request):
         serializer = SignupSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        if not serializer.is_valid():
+            return Response(
+                {"error": serializer.errors},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         first_name = serializer.validated_data["first_name"]
         last_name = serializer.validated_data["last_name"]
@@ -63,9 +67,12 @@ class SignupView(APIView):
         email = serializer.validated_data["email"]
         password = serializer.validated_data["password"]
 
+
+# checks if email is in use
         if User.objects.filter(email=email).exists():
             return Response({"error": "Email already in use"}, status=status.HTTP_400_BAD_REQUEST)
     
+    # creates a new user
         user = User.objects.create_user(
             username=email,
             email=email,
@@ -73,7 +80,7 @@ class SignupView(APIView):
             first_name=first_name,
             last_name=last_name
         )
-
+#tries to find a patient with the same first name, last name, dob, and phone number
         patient = Patient.objects.filter(
             first_name__iexact=first_name,
             last_name__iexact=last_name,
@@ -123,7 +130,8 @@ class LoginView(APIView):
             return Response({"error": "Invalid email or password"}, status=status.HTTP_401_UNAUTHORIZED)
         
         token, created = Token.objects.get_or_create(user=user)
-        patient = getattr(user, "patient_profile", None)
+        patient = Patient.objects.filter(user=user).first()
+
 
         if patient:
             patient_data = PatientSerializer(patient).data

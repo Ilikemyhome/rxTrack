@@ -4,6 +4,8 @@ import presIcon from '../images/capsules.png';
 import settingsIcon from '../images/settings.png';
 import bellIcon from '../images/ringing.png';
 import chat from '../images/chat-ai.png';
+import DashboardSkeleton from '../DashboardSkeleton';
+import { useNavigate } from 'react-router-dom';
 
 interface OTMAlert {
   id: number;
@@ -33,9 +35,7 @@ interface Patient {
   phone_number: string;
 }
 
-interface Props {
-  data : any;
-}
+
 function getGreeting() {
   const hour = new Date().getHours();
   if (hour < 12) return "Good morning";
@@ -43,12 +43,13 @@ function getGreeting() {
   return "Good evening";
 }
 
-const PatientDashboard: React.FC<Props> = ({ data }) => {
+const PatientDashboard = () => {
   const [activeTab, setActiveTab] = React.useState('home');
   const [patient, setPatient] = React.useState<Patient | null>(null);
   const [prescriptions, setPrescriptions] = React.useState<Prescription[]>([]);
   const [alerts, setAlerts] = React.useState<OTMAlert[]>([]);
   const [loading, setLoading] = React.useState(true);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchDashboard = async () => {
@@ -58,17 +59,38 @@ const PatientDashboard: React.FC<Props> = ({ data }) => {
 
       if (!token) {
         console.log("No token found");
+        navigate("/");
         return;
       }
 
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/dashboard/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const patientId =
+          localStorage.getItem("patientId") ||
+          sessionStorage.getItem("patientId");
+
+        const response = await fetch(
+          `http://127.0.0.1:8000/patients/${patientId}/dashboard/`,
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          console.error("Dashboard failed:", response.status);
+          setLoading(false);
+          return;
+        }
 
         const data = await response.json();
+        if (data.has_patient === false) {
+          setPatient(null);
+          setPrescriptions([]);
+          setAlerts([]);
+          setLoading(false);
+          return;
+        }
 
         setPatient(data.patient);
         setPrescriptions(data.prescriptions);
@@ -84,11 +106,7 @@ const PatientDashboard: React.FC<Props> = ({ data }) => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="dashboard-loading">
-        <p>Loading your dashboard...</p>
-      </div>
-    );
+    return <DashboardSkeleton />;
   }
 
   return (

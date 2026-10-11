@@ -19,6 +19,8 @@ const Login = () => {
   const [shake, setShake] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+ 
   const navigate = useNavigate();
 
   // Load saved email/token on page load
@@ -27,6 +29,14 @@ const Login = () => {
     if (savedEmail) {
       setEmail(savedEmail);
       setRememberMe(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const token = 
+      localStorage.getItem("authToken") || sessionStorage.getItem("authToken");
+    if (token) {
+      navigate("/dashboard");
     }
   }, []);
 
@@ -51,8 +61,9 @@ const Login = () => {
 
   // Login request to Django
   const handleLogin = async () => {
+    setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
+      const response = await fetch("http://127.0.0.1:8000/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,6 +82,7 @@ const Login = () => {
 
         if(!token || !patientId) {
           setPasswordError("Invalid server response");
+
           return;
         }
 
@@ -89,6 +101,8 @@ const Login = () => {
         navigate("/dashboard");
       } else {
         setPasswordError("Invalid email or password");
+        setShake(true);
+        setTimeout(() => setShake(false), 300);
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -107,6 +121,7 @@ const Login = () => {
           className={`auth-form ${shake ? "shake" : ""}`}
           onSubmit={(e) => {
             e.preventDefault();
+            if (loading) return; // Prevent multiple submissions
 
             setEmailTouched(true);
             setPasswordTouched(true);
@@ -117,17 +132,23 @@ const Login = () => {
               return;
             }
 
-            setLoading(true);
+           
             handleLogin();
           }}
         >
           {/* EMAIL FIELD */}
           <div className="input-group">
+
             <input
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError("");
+
+              }}
+              
               onBlur={() => setEmailTouched(true)}
               className={emailError && emailTouched ? "error" : ""}
             />
@@ -143,7 +164,10 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setPasswordError("");
+                }}
                 onBlur={() => setPasswordTouched(true)}
                 className={passwordError && passwordTouched ? "error" : ""}
               />
@@ -181,7 +205,7 @@ const Login = () => {
         </form>
 
         <p className="auth-switch">
-          Don’t have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>
