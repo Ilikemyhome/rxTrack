@@ -18,8 +18,12 @@ Including another URLconf
 # rxtrack_backend/urls.py
 from django.contrib import admin
 from django.urls import path, include
+from core.views import SignupView, LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('signup/', SignupView.as_view(), name='signup'),
+    path('login/', LoginView.as_view(), name='login'),
     path('api/', include('core.urls')),  # This sends any 'api/...' request to your core app
 ]

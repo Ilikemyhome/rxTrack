@@ -54,6 +54,6 @@ function PatientDashboardWrapper() {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <PatientDashboard data={data} />
+    <PatientDashboard />
   );
 }

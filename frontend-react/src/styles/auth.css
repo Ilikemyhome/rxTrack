@@ -1,16 +1,18 @@
 .auth-container {
   min-height: 100vh;
   background: var(--color-bg-soft);
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 32px;
-  margin-top: 32px;
+ 
 }
 
 .auth-content {
   width: 100%;
   max-width: 360px;
   text-align: center;
+  padding: 24px 0;
 }
 
 .auth-title {
@@ -38,6 +40,8 @@
   border: 1px solid var(--color-border);
   font-size: 16px;
   background: white;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .auth-button {
@@ -87,6 +91,60 @@
 .auth-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+.input-group.double {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.input-group.double input {
+  flex: 1;
+  min-width: 140px;
+}
+
+input[type="date"] {
+  color: var(--color-text-secondary);
+}
+
+input[type="date"]:invalid {
+  color: var(--color-text-secondary);
+}
+.input-label {
+  text-align: left;
+  font-size: 18px;
+  color: var(--color-text-secondary);
+}
+
+.dob-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.dob-group input {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  font-size: 16px;
+  background: white;
+  box-sizing: border-box;
+}
+.dob-label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  display: block;
+}
+
+.dob-group input.error {
+  border: 1px solid #d9534f !important;
+  background: #ffecec;
 }
 
 .spinner {
@@ -171,15 +229,47 @@
   color: #333;
   cursor: pointer;
 }
+.back-button {
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.auth-select {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 
+@media (max-width: 767px) {
+  .dob-group {
+    flex-wrap: wrap;
+  }
+
+  .dob-group input {
+    min-width: 80px;
+  }
+}
 @media (min-width:768px) {
     .auth-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding-top: 0;
-        margin-top: 0;
+        align-items: center;
+
     }
 
     .auth-content {
