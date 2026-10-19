@@ -22,6 +22,7 @@ type Step3Props = {
   setShowPassword: (v: boolean) => void;
   showConfirmPassword: boolean;
   setShowConfirmPassword: (v: boolean) => void;
+  handleSignup: () => void;
 };
 
 export default function Step3({
@@ -42,7 +43,8 @@ export default function Step3({
   showPassword,
   setShowPassword,
   showConfirmPassword,
-  setShowConfirmPassword
+  setShowConfirmPassword,
+  handleSignup
 }: Step3Props) {
   const navigate = useNavigate();
 
@@ -55,7 +57,7 @@ export default function Step3({
     }
 
     try {
-      const response = await fetch("http://10.0.0.63:8000/signup/", {
+      const response = await fetch("http://localhost:8000/signup/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -134,7 +136,7 @@ export default function Step3({
 
 
 
-            <button className="auth-button">Create Account</button>
+            <button className="auth-button" type="button" onClick={handleSignup}>Create Account</button>
             <div className="auth-switch">
                 Already have an account? <a href="/">Sign in</a>
             </div>

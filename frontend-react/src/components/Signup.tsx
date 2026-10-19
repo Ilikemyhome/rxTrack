@@ -3,10 +3,14 @@ import Step1 from "../components/signup/Step1";
 import Step2 from "../components/signup/Step2";
 import Step3 from "../components/signup/Step3";
 
+import { useNavigate } from "react-router-dom";
 
 import "../styles/auth.css";
 
 export default function Signup() {
+
+  const navigate = useNavigate();
+  
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -40,6 +44,41 @@ export default function Signup() {
 
   const autoJump = (value: string, max: number, nextId: string) => {
     if (value.length === max) document.getElementById(nextId)?.focus();
+  };
+
+  const handleSignup = async () => {
+    const dob = `${dobYear}-${dobMonth}-${dobDay}`;
+
+    const payload = {
+      first_name: firstName,
+      last_name: lastName,
+      dob,
+      phone,
+      email,
+      password,
+      confirm_password: confirmPassword,
+    };
+
+    const res = await fetch("http://localhost:8000/signup/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ firstName, lastName, email, password }),
+    });
+
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("authToken", data.token);
+
+      if (data.has_patient) {
+        navigate(`/dashboard/${data.patient.id}`);
+      } else {
+        alert("Signup successful! Please complete your profile.");
+      }
+    } else {
+      setError(data.error || "Signup failed");
+    }
   };
 
   return (
@@ -109,6 +148,7 @@ export default function Signup() {
           setShowPassword={setShowPassword}
           showConfirmPassword={showConfirmPassword}
           setShowConfirmPassword={setShowConfirmPassword}
+          handleSignup={handleSignup}
         />
       )}
     </div>

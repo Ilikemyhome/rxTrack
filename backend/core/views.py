@@ -101,7 +101,9 @@ class SignupView(APIView):
             patient_data = PatientSerializer(patient).data
             prescriptions_data = PrescriptionSerializer(patient.prescriptions.all(), many=True).data
 
+        token, created = Token.objects.get_or_create(user=user)
         return Response({
+            "token" : token.key,
             "user_id": user.id,
             "email": user.email,
             "has_patient": has_patient,

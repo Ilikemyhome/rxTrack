@@ -32,14 +32,7 @@ const Login = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const token = 
-      localStorage.getItem("authToken") || sessionStorage.getItem("authToken");
-    if (token) {
-      navigate("/dashboard");
-    }
-  }, []);
-
+ 
   // Validation
   useEffect(() => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -63,15 +56,10 @@ const Login = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/login/", {
+      const response = await fetch("http://localhost:8000/login/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -80,7 +68,7 @@ const Login = () => {
         const token = data.token;
         const patientId = data.patient_id;
 
-        if(!token || !patientId) {
+        if(!token) {
           setPasswordError("Invalid server response");
 
           return;
@@ -90,12 +78,13 @@ const Login = () => {
         if (rememberMe) {
           localStorage.setItem("authToken", token);
           localStorage.setItem("savedEmail", email);
-          localStorage.setItem("patientId", patientId);
+          if (patientId) localStorage.setItem("patientId", patientId);
         } else {
           sessionStorage.setItem("authToken", token);
           localStorage.removeItem("savedEmail");
-          localStorage.removeItem("patientId");
+          if (patientId) sessionStorage.setItem("patientId", patientId);
         }
+
 
         console.log("Logged in!");
         navigate("/dashboard");

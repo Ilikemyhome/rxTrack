@@ -69,7 +69,7 @@ const PatientDashboard = () => {
           sessionStorage.getItem("patientId");
 
         const response = await fetch(
-          `http://127.0.0.1:8000/patients/${patientId}/dashboard/`,
+          `http://localhost:8000/patients/${patientId}/dashboard/`,
           {
             headers: {
               Authorization: `Token ${token}`,
