@@ -69,7 +69,7 @@ const PatientDashboard = () => {
           sessionStorage.getItem("patientId");
 
         const response = await fetch(
-          `http://localhost:8000/patients/${patientId}/dashboard/`,
+          `http://localhost:8000/api/patients/${patientId}/dashboard/`,
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -84,6 +84,7 @@ const PatientDashboard = () => {
         }
 
         const data = await response.json();
+        console.log(data);
         if (data.has_patient === false) {
           setPatient(null);
           setPrescriptions([]);
@@ -92,9 +93,9 @@ const PatientDashboard = () => {
           return;
         }
 
-        setPatient(data.patient);
-        setPrescriptions(data.prescriptions);
-        setAlerts(data.alerts);
+        setPatient(data);
+        setPrescriptions(data.prescriptions || []);
+        setAlerts(data.patient_alerts || []);
       } catch (error) {
         console.error("Dashboard fetch error:", error);
       } finally {
@@ -103,7 +104,7 @@ const PatientDashboard = () => {
     };
 
     fetchDashboard();
-  }, []);
+  }, [navigate]);
 
   if (loading) {
     return <DashboardSkeleton />;

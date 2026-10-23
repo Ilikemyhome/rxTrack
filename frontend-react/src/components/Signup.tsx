@@ -62,7 +62,7 @@ export default function Signup() {
     const res = await fetch("http://localhost:8000/signup/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName, lastName, email, password }),
+      body: JSON.stringify(payload),
     });
 
 
@@ -72,12 +72,11 @@ export default function Signup() {
       localStorage.setItem("authToken", data.token);
 
       if (data.has_patient) {
-        navigate(`/dashboard/${data.patient.id}`);
+        navigate(`/dashboard/`);
       } else {
-        alert("Signup successful! Please complete your profile.");
+      setError("Please complete all required fields.");
+      console.error(data.error);
       }
-    } else {
-      setError(data.error || "Signup failed");
     }
   };
 

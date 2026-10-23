@@ -55,7 +55,7 @@ function PatientDashboardWrapper() {
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch((error) => console.error("Error fetching dashboard data:", error));
-  }, []);
+  }, [navigate]);
 
   if (!data) return <p>Loading...</p>;
 
