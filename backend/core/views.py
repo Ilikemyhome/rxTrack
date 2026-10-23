@@ -14,6 +14,7 @@ from datetime import date, timedelta
 import json
 from rest_framework import permissions
 from django.contrib.auth import authenticate
+import re
 
 from insurance_codes.interpreter import interpret_reject_code
 
@@ -50,22 +51,30 @@ class PatientDashboardViewSet(APIView):
     
 
 class SignupView(APIView):
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]    
 
     def post(self, request):
         serializer = SignupSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        if not serializer.is_valid():
+            return Response(
+                {"error": serializer.errors},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         first_name = serializer.validated_data["first_name"]
         last_name = serializer.validated_data["last_name"]
         dob = serializer.validated_data["dob"]
-        phone = serializer.validated_data["phone"]
+        phone = serializer.validated_data["phone"] 
+        phone = re.sub(r'\D', '', phone)      
         email = serializer.validated_data["email"]
         password = serializer.validated_data["password"]
 
+
+# checks if email is in use
         if User.objects.filter(email=email).exists():
             return Response({"error": "Email already in use"}, status=status.HTTP_400_BAD_REQUEST)
     
+    # creates a new user
         user = User.objects.create_user(
             username=email,
             email=email,
@@ -73,17 +82,27 @@ class SignupView(APIView):
             first_name=first_name,
             last_name=last_name
         )
-
-        patient = Patient.objects.filter(
+#tries to find a patient with the same first name, last name, dob, and phone number
+        possible_patients = Patient.objects.filter(
             first_name__iexact=first_name,
             last_name__iexact=last_name,
             date_of_birth=dob,
-            phone_number=phone,
-        ).first()
+        )
+
+        patient = None
+
+        for p in possible_patients:
+            stored_phone = re.sub(r"\D", "", p.phone_number)
+
+            if stored_phone == phone:
+                patient = p
+                break
 
         has_patient = False
         patient_data = None
         prescriptions_data = []
+
+        print("Found patient:", patient)
 
         if patient:
             patient.user = user
@@ -94,14 +113,16 @@ class SignupView(APIView):
             patient_data = PatientSerializer(patient).data
             prescriptions_data = PrescriptionSerializer(patient.prescriptions.all(), many=True).data
 
+        token, created = Token.objects.get_or_create(user=user)
         return Response({
+            "token" : token.key,
             "user_id": user.id,
             "email": user.email,
             "has_patient": has_patient,
             "patient": patient_data,
             "prescriptions": prescriptions_data,
         }, status=status.HTTP_201_CREATED)
-    
+            
 
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
@@ -123,7 +144,10 @@ class LoginView(APIView):
             return Response({"error": "Invalid email or password"}, status=status.HTTP_401_UNAUTHORIZED)
         
         token, created = Token.objects.get_or_create(user=user)
-        patient = getattr(user, "patient_profile", None)
+        patient = Patient.objects.filter(user=user).first()
+
+        
+
 
         if patient:
             patient_data = PatientSerializer(patient).data

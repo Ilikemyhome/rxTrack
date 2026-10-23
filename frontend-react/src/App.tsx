@@ -33,15 +33,21 @@ function PatientDashboardWrapper() {
       sessionStorage.getItem("authToken");
 
     const patientId = 
-      localStorage.getItem("patient_id") ||
-      sessionStorage.getItem("patient_id");
 
-    if (!token || !patientId) {
+      localStorage.getItem("patientId") ||
+      sessionStorage.getItem("patientId");
+
+
+    if (!token) {
       console.log("No token found");
       navigate("/");
       return;
     }
-    fetch(`http://10.0.0.63:8000/api/patients/${patientId}/dashboard/`, {
+      if (!patientId) {
+      console.log("No patient profile found");
+      return;
+    }
+    fetch(`http://localhost:8000/api/patients/${patientId}/dashboard/`, {
       headers: {
         Authorization: `Token ${token}`,
       }
@@ -49,11 +55,11 @@ function PatientDashboardWrapper() {
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch((error) => console.error("Error fetching dashboard data:", error));
-  }, []);
+  }, [navigate]);
 
   if (!data) return <p>Loading...</p>;
 
   return (
-    <PatientDashboard data={data} />
+    <PatientDashboard />
   );
 }

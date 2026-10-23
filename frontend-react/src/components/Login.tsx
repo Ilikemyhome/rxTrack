@@ -19,6 +19,8 @@ const Login = () => {
   const [shake, setShake] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+ 
   const navigate = useNavigate();
 
   // Load saved email/token on page load
@@ -30,6 +32,7 @@ const Login = () => {
     }
   }, []);
 
+ 
   // Validation
   useEffect(() => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -51,16 +54,12 @@ const Login = () => {
 
   // Login request to Django
   const handleLogin = async () => {
+    setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
+      const response = await fetch("http://localhost:8000/login/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -69,8 +68,9 @@ const Login = () => {
         const token = data.token;
         const patientId = data.patient_id;
 
-        if(!token || !patientId) {
+        if(!token) {
           setPasswordError("Invalid server response");
+
           return;
         }
 
@@ -78,17 +78,20 @@ const Login = () => {
         if (rememberMe) {
           localStorage.setItem("authToken", token);
           localStorage.setItem("savedEmail", email);
-          localStorage.setItem("patientId", patientId);
+          if (patientId) localStorage.setItem("patientId", patientId);
         } else {
           sessionStorage.setItem("authToken", token);
           localStorage.removeItem("savedEmail");
-          localStorage.removeItem("patientId");
+          if (patientId) sessionStorage.setItem("patientId", patientId);
         }
+
 
         console.log("Logged in!");
         navigate("/dashboard");
       } else {
         setPasswordError("Invalid email or password");
+        setShake(true);
+        setTimeout(() => setShake(false), 300);
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -107,6 +110,7 @@ const Login = () => {
           className={`auth-form ${shake ? "shake" : ""}`}
           onSubmit={(e) => {
             e.preventDefault();
+            if (loading) return; // Prevent multiple submissions
 
             setEmailTouched(true);
             setPasswordTouched(true);
@@ -117,17 +121,23 @@ const Login = () => {
               return;
             }
 
-            setLoading(true);
+           
             handleLogin();
           }}
         >
           {/* EMAIL FIELD */}
           <div className="input-group">
+
             <input
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError("");
+
+              }}
+              
               onBlur={() => setEmailTouched(true)}
               className={emailError && emailTouched ? "error" : ""}
             />
@@ -143,7 +153,10 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setPasswordError("");
+                }}
                 onBlur={() => setPasswordTouched(true)}
                 className={passwordError && passwordTouched ? "error" : ""}
               />
@@ -181,7 +194,7 @@ const Login = () => {
         </form>
 
         <p className="auth-switch">
-          Don’t have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>

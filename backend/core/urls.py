@@ -8,11 +8,14 @@ router.register(r'prescriptions', PrescriptionViewSet)
 router.register(r'patients', PatientViewset)
 
 urlpatterns = [
+    
     path('', include(router.urls)),
-    path('patients/<int:patient_id>/dashboard/', PatientDashboardViewSet.as_view(), name='patient-dashboard'),
+    path('api/patients/<int:patient_id>/dashboard/', PatientDashboardViewSet.as_view(), name='patient-dashboard'),
     path('reject/interpret/', interpret_reject_view),
     path('signup/', SignupView.as_view(), name='signup'),
     path('login/', LoginView.as_view(), name='login'),
     path("api/", include("api.urls")),
 
 ]
+
+
