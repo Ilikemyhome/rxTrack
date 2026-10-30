@@ -72,6 +72,9 @@ export default function Signup() {
       localStorage.setItem("authToken", data.token);
 
       if (data.has_patient) {
+        localStorage.setItem("patientId", 
+          String(data.patient.id)
+        );
         navigate(`/dashboard/`);
       } else {
       setError("Please complete all required fields.");

@@ -307,6 +307,30 @@ body {
 .desktop-nav {
     display: none;
 }
+.settings-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+.settings-modal {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+
+    width: 90%;
+    max-width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
 @media (min-width: 768px) {
     .desktop-nav {
@@ -465,6 +489,7 @@ body {
     .nav-link.active {
         color: var(--color-accent);
         font-weight: 600;
+        border-bottom: 2px solid var(--color-accent);
     }
 
 }
