@@ -50,8 +50,11 @@ const PatientDashboard = () => {
   const [alerts, setAlerts] = React.useState<OTMAlert[]>([]);
   const [loading, setLoading] = React.useState(true);
   const navigate = useNavigate();
+  const [showSettings, setShowSettings] = React.useState(false);
 
   React.useEffect(() => {
+
+    
     const fetchDashboard = async () => {
       const token =
         localStorage.getItem("authToken") ||
@@ -106,6 +109,15 @@ const PatientDashboard = () => {
     fetchDashboard();
   }, [navigate]);
 
+  const handleLogout = () =>{
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("patientId");
+      
+      sessionStorage.removeItem("authToken");
+      sessionStorage.removeItem("patientId");
+
+      navigate("/");
+  };
   if (loading) {
     return <DashboardSkeleton />;
   }
@@ -120,50 +132,113 @@ const PatientDashboard = () => {
         </div>
 
         <div className="nav-right">
-          <button className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} onClick={() => setActiveTab('home')}>Home</button>
+          <button className={`nav-link ${activeTab === 'home'  ? 'active' : ''}`} onClick={() => setActiveTab('home')}>Home</button>
           <button className={`nav-link ${activeTab === 'prescriptions' ? 'active' : ''}`} onClick={() => setActiveTab('prescriptions')}>Prescriptions</button>
           <button className={`nav-link ${activeTab === 'notifications' ? 'active' : ''}`} onClick={() => setActiveTab('notifications')}>Notifications</button>
           <button className={`nav-link ${activeTab === 'chat' ? 'active' : ''}`} onClick={() => setActiveTab('chat')}>Chat</button>
+          <button className="nav-link" onClick={() => setShowSettings(true)}>Settings</button>
         </div>
       </nav>
 
-      <div className="dashboard">
-        {/* Greeting */}
-        <div className="header">
-          <h2>{getGreeting()}, {patient?.first_name}</h2>
-        </div>
-
-        {/* PRESCRIPTIONS SECTION */}
-        <section className="section">
-          <h3>Your Prescriptions</h3>
-
-          <div className="prescription-list">
-            {prescriptions.map((rx) => (
-              <PrescriptionCard key={rx.id} prescription={rx} />
-            ))}
-          </div>
-        </section>
-
-        {/* ALERTS SECTION */}
-        <section className="section">
-          <section className="dashboard-section alerts-section">
-            <h3>Upcoming Alerts</h3>
-          </section>
-
-          {alerts.length === 0 ? (
-            <p className="empty-text">No active alerts.</p>
-          ) : (
-            <div className="alerts">
-              {alerts.map((alert) => (
-                <div key={alert.id} className="alert-card">
-                  {alert.alert_type}
-                </div>
-              ))}
+      <div className="dashboard">     
+       {activeTab === 'home' && (
+          <>
+            <div className="header">
+              <h2>{getGreeting()}, {patient?.first_name}</h2>
             </div>
-          )}
-        </section>
 
-        {/* BOTTOM NAV */}
+            <section className="section">
+              <h3>Your Prescriptions</h3>
+
+              <div className="prescription-list">
+                {prescriptions.map((rx) => (
+                  <PrescriptionCard
+                    key={rx.id}
+                    prescription={rx}
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="section">
+              <h3>Upcoming Alerts</h3>
+
+              {alerts.length === 0 ? (
+                <p className="empty-text">
+                  No active alerts.
+                </p>
+              ) : (
+                <div className="alerts">
+                  {alerts.map((alert) => (
+                    <div
+                      key={alert.id}
+                      className="alert-card"
+                    >
+                      {alert.alert_type}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          </>
+        )}
+
+          {activeTab === 'prescriptions' && (
+            <section className="section">
+            <div className="header">
+              <h2>All Prescriptions</h2>
+            </div>
+
+              <div className="prescription-list">
+                {prescriptions.map((rx) => (
+                  <PrescriptionCard
+                    key={rx.id}
+                    prescription={rx}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {activeTab === 'notifications' && (
+            <section className="section">
+            <div className="header">
+              <h2>Alerts</h2>
+            </div>
+
+              {alerts.length === 0 ? (
+                <p className="empty-text">
+                  No active alerts.
+                </p>
+              ) : (
+                <div className="alerts">
+                  {alerts.map((alert) => (
+                    <div
+                      key={alert.id}
+                      className="alert-card"
+                    >
+                      {alert.alert_type}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
+
+          {activeTab === 'chat' && (
+            <section className="section">
+              <div className="header">
+              <h2>AI Assistant</h2>
+              </div>
+              
+              <p>Coming soon...</p>
+            </section>
+          )}
+
+        
+      </div>
+
+       {/* BOTTOM NAV */}
         <nav className="bottom-nav">
           <button className={`nav-icon ${activeTab === 'home' ? 'active' : ''}`} onClick={() => setActiveTab('home')}>
             <img src={homeIcon} alt="Home" />
@@ -177,11 +252,34 @@ const PatientDashboard = () => {
           <button className={`nav-icon ${activeTab === 'chat' ? 'active' : ''}`} onClick={() => setActiveTab('chat')}>
             <img src={chat} alt="aichat" />
           </button>
-          <button className={`nav-icon ${activeTab === 'settings' ? 'active' : ''}`} onClick={() => setActiveTab('settings')}>
+          <button className="nav-icon" onClick={() => setShowSettings(true)}>
             <img src={settingsIcon} alt="settings" />
           </button>
         </nav>
-      </div>
+      {showSettings && (
+        <div className="settings-overlay">
+          <div className="settings-modal">
+
+            <h3>Settings</h3>
+
+            <button
+              className="secondary-button"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+
+            <button
+              className="primary-button"
+              onClick={() => setShowSettings(false)}
+            >
+              Close
+            </button>
+
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
