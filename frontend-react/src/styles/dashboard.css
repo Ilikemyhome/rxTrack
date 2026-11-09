@@ -332,7 +332,7 @@ body {
     gap: 12px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .desktop-nav {
         display: flex;
         justify-content: space-between;

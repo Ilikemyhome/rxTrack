@@ -35,6 +35,16 @@ def explain_prescription(request):
         Message: {patient_message}
 
         Keep under 75 words.
+        Requirements:
+            - Use simple language.
+            - Be supportive and reassuring.
+            - Do not blame the patient.
+            - Avoid making the patient feel responsible for the delay.
+            - Explain the issue in a neutral way.
+            - Provide practical next steps.
+            - Do not imply that actions have already been taken.
+            - Do not promise outcomes or assistance that may not have occurred.
+            - Only describe the information provided.
         """
 
         print("Prompt created")
@@ -60,6 +70,61 @@ def explain_prescription(request):
 
         print("ERROR:", e)
 
+        return Response({
+            "error": str(e)
+        })
+
+@api_view(["POST"])
+def chat_with_remy(request):
+    
+
+    try:
+        print("===== AI REQUEST STARTED =====")
+        start = time.time()
+        message = request.data.get("message")
+
+        prompt = f"""
+        You are Remy, the friendly AI assistant for RxTrack.
+
+        Help users understand prescriptions,
+        insurance issues, refills, and pharmacy terms.
+
+        Use clear, simple language.
+        Be friendly and supportive.
+        Do not recommend treatments,
+        home remedies,
+        supplements,
+        or medications.
+
+        Only explain pharmacy,
+        insurance,
+        prescription,
+        and refill topics.
+        Do not provide medical advice.
+        Do not imply that actions have been taken.
+        Do not promise assistance or outcomes.
+        Do not claim that you, RxTrack, a pharmacy, or a doctor will perform actions.
+        Only explain information and suggest possible next steps.
+        Keep responses under 50 words.
+
+        Question:
+        {message}
+        """
+        print("Prompt created")
+        model = genai.GenerativeModel(
+            "models/gemini-3.5-flash-lite"
+        )
+        print("Model initialized")
+        print("Starting generation...")
+
+        response = model.generate_content(prompt)
+        end = time.time()
+        print(f"Generation took {end - start:.2f} seconds")
+        return Response({
+            "message": response.text
+        })
+
+    except Exception as e:
         return Response({
             "error": str(e)
         })
