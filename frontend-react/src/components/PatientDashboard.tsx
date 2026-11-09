@@ -51,6 +51,13 @@ const PatientDashboard = () => {
   const [loading, setLoading] = React.useState(true);
   const navigate = useNavigate();
   const [showSettings, setShowSettings] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+  const [messages, setMessages] = React.useState([
+  {
+    sender: "ai",
+    text: "Hi, I'm Remy. I can help explain prescription statuses, insurance requirements, refill timing, and common pharmacy questions."
+  }
+]);
 
   React.useEffect(() => {
 
@@ -121,6 +128,50 @@ const PatientDashboard = () => {
   if (loading) {
     return <DashboardSkeleton />;
   }
+
+  const handleSend = async () => {
+    if (!message.trim()) return;
+
+    const userMessage = message
+
+    setMessages(prev => [
+      ...prev,
+      {
+        sender: "user",
+        text: userMessage
+      }
+    ]);
+
+    setMessage("");
+    try {
+
+    const response = await fetch(
+      "http://localhost:8000/api/chat/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: userMessage
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    setMessages(prev => [
+      ...prev,
+      {
+        sender: "ai",
+        text: data.message
+      }
+    ]);
+
+  } catch (error) {
+    console.error(error);
+  }
+  };
 
   return (
     <>
@@ -228,10 +279,63 @@ const PatientDashboard = () => {
           {activeTab === 'chat' && (
             <section className="section">
               <div className="header">
-              <h2>AI Assistant</h2>
+
               </div>
               
-              <p>Coming soon...</p>
+              <div className="chat-container">
+                <div className="chat-messages">
+                  {messages.map((msg, index) => (
+                    <div
+                      key={index}
+                      className={
+                        msg.sender === "ai"
+                          ? "ai-message"
+                          : "user-message"
+                      }
+                    >
+                      {msg.text}
+                    </div>
+                  ))}
+                  <div className="suggested-prompts">
+                  <button
+                    className="suggestion-chip"
+                    onClick={() => setMessage("What is prior authorization?")}
+                  >
+                    What is prior authorization?
+                  </button>
+
+                  <button
+                    className="suggestion-chip"
+                    onClick={() => setMessage("Why is my prescription delayed?")}
+                  >
+                    Why is my prescription delayed?
+                  </button>
+
+                  <button
+                    className="suggestion-chip"
+                    onClick={() => setMessage("When can I refill my medication?")}
+                  >
+                    When can I refill my medication?
+                  </button>
+
+                  <button
+                    className="suggestion-chip"
+                    onClick={() => setMessage("What does pending mean?")}
+                  >
+                    What does pending mean?
+                  </button>
+                </div>
+                  
+                </div>
+                <div className="chat-input-container">
+                  <input type="text" placeholder="Ask a question..." value={message} onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}/>
+                  <button className="primary-button" onClick={handleSend}>Send</button>
+                  
+                  
+                  
+                </div>
+              </div>
             </section>
           )}
 
@@ -287,6 +391,41 @@ const PatientDashboard = () => {
 const PrescriptionCard: React.FC<{ prescription: Prescription }> = ({ prescription }) => {
   const colorClass = `pill-pill--${prescription.theme_color || "blue"}`;
   const [showDetails, setShowDetails] = React.useState(false);
+  const [aiExplanation, setAiExplanation] = React.useState("");
+  const [loadingExplanation, setLoadingExplanation] = React.useState(false);
+  const [ showExplanation, setShowExplanation] = React.useState(false);
+
+  const handleExplanation = async () => {
+  try {
+    setLoadingExplanation(true);
+
+    const response = await fetch(
+      "http://localhost:8000/api/ai/explain/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          drug_name: prescription.drug_name,
+          status: prescription.status,
+          insurance_status: prescription.insurance_status,
+          patient_message: prescription.patient_message,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    setAiExplanation(data.message);
+    setShowExplanation(true);
+
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoadingExplanation(false);
+  }
+};
 
   return (
     <div className="prescription-card">
@@ -321,7 +460,9 @@ const PrescriptionCard: React.FC<{ prescription: Prescription }> = ({ prescripti
         )}
 
         {prescription.action_type === "CHAT_EXPLANATION" && (
-          <button className="primary-button">Why can't I refill yet?</button>
+          <button className="primary-button" onClick={handleExplanation}>
+            {loadingExplanation ? "Thinking..." : "Why can't I refill yet?"}
+          </button>
         )}
 
         {prescription.action_type === "PICK_UP_REMINDER" && (
@@ -343,6 +484,25 @@ const PrescriptionCard: React.FC<{ prescription: Prescription }> = ({ prescripti
               <p>{prescription.patient_message}</p>
             </div>
           )}
+        </div>
+      )}
+
+      {showExplanation && (
+        <div className="settings-overlay">
+          <div className="settings-modal">
+
+            <h3>AI Explanation</h3>
+
+            <p>{aiExplanation}</p>
+
+            <button
+              className="primary-button"
+              onClick={() => setShowExplanation(false)}
+            >
+              Close
+            </button>
+
+          </div>
         </div>
       )}
     </div>
