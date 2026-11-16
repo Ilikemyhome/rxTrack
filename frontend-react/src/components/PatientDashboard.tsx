@@ -145,6 +145,7 @@ const PatientDashboard = () => {
     setMessage("");
     try {
 
+    const patientId = localStorage.getItem("patientId")
     const response = await fetch(
       "http://localhost:8000/api/chat/",
       {
@@ -153,7 +154,8 @@ const PatientDashboard = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          message: userMessage
+          message: userMessage,
+          patient_id: patientId
         })
       }
     );
@@ -202,7 +204,7 @@ const PatientDashboard = () => {
               <h3>Your Prescriptions</h3>
 
               <div className="prescription-list">
-                {prescriptions.map((rx) => (
+                {prescriptions.filter((rx) => rx.status !== "Expired").map((rx) => (
                   <PrescriptionCard
                     key={rx.id}
                     prescription={rx}

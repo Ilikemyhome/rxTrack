@@ -103,6 +103,13 @@ class SignupView(APIView):
         prescriptions_data = []
 
         print("Found patient:", patient)
+        if not patient:
+            user.delete()
+            return Response({
+                "error": "No matching pharmacy profile found. Please verify your information or contact your pharmacy."
+            },
+            status=status.HTTP_404_NOT_FOUND
+            )
 
         if patient:
             patient.user = user

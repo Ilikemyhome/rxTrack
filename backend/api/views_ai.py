@@ -5,6 +5,7 @@ import time
 from dotenv import load_dotenv
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from core.models import Patient, Prescription, OTMAlert
 
 load_dotenv()
 
@@ -76,18 +77,66 @@ def explain_prescription(request):
 
 @api_view(["POST"])
 def chat_with_remy(request):
-    
+    message = request.data.get("message")
+    patient_id = request.data.get("patient_id")
+    patient = Patient.objects.get(id=patient_id)
 
+
+    prescriptions = Prescription.objects.filter(patient=patient)
+    print(prescriptions)
+
+
+    prescription_context = ""
+
+    for rx in prescriptions:
+        prescription_context += f"""
+        Medication: {rx.drug_name}
+        Status: {rx.status}
+        Cost: {"High" if rx.is_high_cost else "Low"}        
+        Refills Left: {rx.refills_left}
+        Insurance Remark: {rx.insurance_remark}
+        Earliest Refill Date: {rx.earliest_refill_date}
+        Expiration Date: {rx.expiration_date}
+        Is Controlled: {rx.is_controlled}
+        
+        """
+    
     try:
         print("===== AI REQUEST STARTED =====")
         start = time.time()
         message = request.data.get("message")
 
         prompt = f"""
-        You are Remy, the friendly AI assistant for RxTrack.
+        You are Remy, the friendly AI assistant for rxTrack.
+
+        Current Patient: {patient.first_name} {patient.last_name}
+        Current Prescriptions: {prescription_context}
+
 
         Help users understand prescriptions,
         insurance issues, refills, and pharmacy terms.
+
+        If the user asks about their medications,
+        prescriptions, refill status, delays,
+        insurance issues, expired prescriptions,
+        or prescriptions that are ready for pickup,
+        use the Current Prescriptions information
+        provided above.
+
+        If information about a prescription exists,
+        prioritize that information over general
+        pharmacy knowledge.
+
+        If a prescription status is Ready,
+        tell the patient it is ready for pickup.
+
+        If a prescription status is Expired,
+        explain that the prescription appears to
+        have expired and a new prescription may
+        be needed from the prescriber.
+
+        If the user asks a general pharmacy question,
+        answer normally.
 
         Use clear, simple language.
         Be friendly and supportive.
