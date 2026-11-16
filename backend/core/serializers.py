@@ -128,6 +128,9 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         
         if obj.insurance_remark:
             return "yellow"
+
+        if obj.status == "Expired":
+            return "gray"
         return "blue"
     
 

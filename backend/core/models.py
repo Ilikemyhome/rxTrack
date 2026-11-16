@@ -1,3 +1,6 @@
+
+from datetime import timedelta
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -37,14 +40,16 @@ class Prescription(models.Model):
 
     status = models.CharField(max_length=20)
     last_filled_date = models.DateField(null=True, blank=True)
+    earliest_refill_date = models.DateField(null=True, blank=True)
     ready_date = models.DateField(null=True, blank=True)
+    expiration_date = models.DateField(null=True, blank=True)
 
     refills_left = models.IntegerField(default=0)
     is_high_cost = models.BooleanField()
-    is_Controlled = models.BooleanField(default=False)
+    is_controlled = models.BooleanField(default=False)
     insurance_remark = models.TextField(blank=True, null=True)  
     days_supply = models.IntegerField(null=True, blank=True)  
-    
+
 
     # string representation of the prescription model
     def __str__(self):

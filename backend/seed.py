@@ -37,7 +37,9 @@ def run():
         ready_date=date.today() - timedelta(days=2),
         last_filled_date=date.today() - timedelta(days=30),
         is_high_cost=False,
-        insurance_remark=""
+        insurance_remark="",
+        is_controlled = True,        
+        
     )
 
     rx2 = Prescription.objects.create(
@@ -52,7 +54,8 @@ def run():
         last_filled_date=date.today() - timedelta(days=30),
         ready_date=date.today() - timedelta(days=2),
         is_high_cost=False,
-        insurance_remark=""
+        insurance_remark="",
+        is_controlled = True,
     )
 
     
@@ -63,7 +66,7 @@ def run():
         last_name="Foo",
         date_of_birth=date(1950, 8, 20),
         phone_number="987-654-3210",
-        email="nova.foo@example.com"
+        email="nova.foo@example.com",
     )
 
     rx3 = Prescription.objects.create(
@@ -77,7 +80,7 @@ def run():
         status="Delayed",
         insurance_remark="REJECT MR: PRODUCT NOT IN FORMULARY",
         last_filled_date=None,      # NEW prescription stuck in insurance
-        is_high_cost=True
+        is_high_cost=True,
     )
 
     rx4 = Prescription.objects.create(
@@ -91,7 +94,7 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 9G: QUANTITY EXCEEDS MAXIMUM ALLOWED",
         last_filled_date=None,      # NEW prescription stuck in insurance
-        is_high_cost=False
+        is_high_cost=False,
     )
 
     
@@ -117,7 +120,8 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 39: MISSING DIAGNOSIS CODE",
         last_filled_date=None,      # Never filled
-        is_high_cost=False
+        is_high_cost=False,
+        is_controlled = True,
     )
 
     # SCENARIO 4: One ready, one refill too soon, one in progress
@@ -154,7 +158,9 @@ def run():
         status="In Progress",
         insurance_remark="",
         last_filled_date=None,
-        is_high_cost=False
+        is_high_cost=False,
+        is_controlled = True,
+        earliest_refill_date=date.today() + timedelta(days=14),
     )
 
     rx8 = Prescription.objects.create(
@@ -169,7 +175,23 @@ def run():
         status="Delayed",
         insurance_remark="REJECT 79: REFILL TOO SOON",
         last_filled_date=date.today() - timedelta(days=10),
+        earliest_refill_date=date.today() + timedelta(days=35),
+        
+        is_high_cost=False,
+    )
+
+    rx9 = Prescription.objects.create(
+        patient=patient4,
+        drug_name="Benzonatate",
+        dosage="200mg",
+        sig="Take one capsule by mouth three times a day as needed for cough",
+        quantity=27,
+        refills_left=0,
+        rx_number="698881",
+        status="Expired",
+        expiration_date=date.today() - timedelta(days=30),
         is_high_cost=False
+
     )
 
 
@@ -183,7 +205,7 @@ def run():
         email="danuel.delmundo@example.com"
     )
 
-    rx9 = Prescription.objects.create(
+    rx10 = Prescription.objects.create(
         patient=patient5,
         drug_name="Lisinopril",
         dosage="10mg",
@@ -194,7 +216,7 @@ def run():
         status="Delayed",
         insurance_remark="",
         last_filled_date=date.today() - timedelta(days=90),
-        is_high_cost=False
+        is_high_cost=False,
     )
     # Alerts
   

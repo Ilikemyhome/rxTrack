@@ -1,5 +1,6 @@
 import React from "react";
 import "../src/styles/DashboardSkeleton.css";
+import "../src/styles/chat.css";
 
 const DashboardSkeleton = () => {
   return (
